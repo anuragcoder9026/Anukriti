@@ -4,9 +4,6 @@
     border-radius: 5px;
     height: 289px;
     margin: 1rem;
-    background: url('./card1.jpg');
-    background-repeat: no-repeat;
-    background-size:185px 289px;
     margin-bottom: 0px;
   }
   .card-cont::-webkit-scrollbar{
