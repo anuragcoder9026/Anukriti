@@ -19,7 +19,7 @@ function Header(){
           <ul  className="navbar-nav me-auto mb-2 mb-lg-0">
             <li  className="nav-item">
               <IoHomeOutline   className="fs-4 nav-icon"/>
-              <Link to="/"  className="nav-link active" aria-current="page"  >Home</Link>
+              <Link to="/Anukriti"  className="nav-link active" aria-current="page"  >Home</Link>
             </li>
             <li  className="nav-item">
             <MdOutlineExplore   className="fs-4 nav-icon category"/>
