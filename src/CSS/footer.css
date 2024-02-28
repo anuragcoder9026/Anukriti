@@ -1,0 +1,36 @@
+.footer-container{
+    background-color: rgb(27, 25, 25);
+    color: white;
+    margin-top: -30px ;
+    padding-left: 10%;
+    margin-left: 0px;
+    width:98.1vw;
+}
+.nav-link{
+   opacity: 0.6;
+}
+.footer-container .nav-link:hover{
+    opacity: 1;
+    text-decoration: underline;
+ }
+ .nav-item p{
+    max-width: 180px;;
+ }
+ .footer-container span{display: inline-block;
+    width: 25%;
+    height: 2px;
+    background-color: brown;
+    line-height: 0;
+}
+h4{
+    margin: 0;
+}
+
+.footer-icon{
+    margin-right: 15px;
+}
+@media screen and (min-width: 768px) and (max-width: 890px) {
+ .help{
+    margin-left: 60px;
+ }
+}

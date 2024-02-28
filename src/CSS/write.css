@@ -1,0 +1,25 @@
+.text-editor{
+    margin:3%;
+}
+.jodit-status-bar a.jodit-status-bar-link {
+    display: none;
+}
+.jodit-wysiwyg{
+    min-height: 500px !important;
+    background-color: rgb(88, 90, 90);
+    color: white;
+}
+.text-editor{
+    padding: 20px;
+    background-color: rgb(228, 228, 228);
+    border-radius: 15px;
+}
+@media screen and (max-width:575px) {
+    .date{
+       margin-bottom: 20px;
+    }
+    .handle-text{
+        display: flex;
+        justify-content: center;
+    }
+}

@@ -1,0 +1,11 @@
+/* styles.css */
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    z-index: 1000; /* Ensure the header stays above other content */
+    /* Add more styles as needed */
+  }
+  

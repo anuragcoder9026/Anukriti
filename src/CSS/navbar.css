@@ -1,0 +1,51 @@
+.navbar-brand img{
+    border-radius: 50%;
+    margin-left: 1rem;
+    margin-right: 2rem;
+}
+.nav-item{
+    display: flex;
+    flex-direction: column;
+}
+.navbar{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #ffffff;
+        z-index: 1000; /* Ensure the header stays above other content */
+        /* Add more styles as needed */
+}
+.nav-icon{
+    margin-left: 16px;
+    margin-bottom: -8px;
+    margin-top: 10px;
+}
+.navbar-nav{
+gap:8px;
+}
+.category{
+   margin-left: 25px;
+}
+.nav-dropdown{
+    margin-top: 14px;
+    margin-left: 35px;
+  }
+@media screen and (max-width:992px) {
+   .nav-item{
+    flex-direction: row;
+   }
+   .nav-icon{
+    margin-right: 8px;
+   }
+   .category{
+    margin-left: 16px;
+ }
+   .navbar-nav{
+    gap: 2px;
+    }
+    .nav-dropdown{
+        margin-left: 15px;
+      }
+  }
+ 
