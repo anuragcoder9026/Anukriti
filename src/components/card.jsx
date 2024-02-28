@@ -5,7 +5,7 @@ function Card(){
     return(
         <>
         <Link to="#" style={{textDecoration: 'none'}}>
-        <div class="card">
+        <div class="card" style={{background: "url('./card1.jpg')"}}>
             <div class="rating">★ 4.7</div>
             <div class="parts"><MdOutlineLibraryBooks className="fs-5" style={{marginRight:"5px"}}/>46 parts</div>
        </div>
