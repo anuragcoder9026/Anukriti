@@ -3,19 +3,24 @@ import { MdOutlineExplore } from "react-icons/md";
 import { MdOutlineEdit } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 import { IoSearchOutline } from "react-icons/io5";
-import { Link } from "react-router-dom";
-import React from 'react';
+import { Link, useLocation } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
 import '../CSS/navbar.css'
 
 function Header(){
+  const location=useLocation();
+  const [disp,setDisp]=useState(false);
+  useEffect(()=>{
+      setDisp(false);
+  },[location.pathname]);
     return(
       <nav  className="navbar navbar-expand-lg bg-body-tertiary">
       <div  className="container-fluid">
         <Link to="#"  className="navbar-brand" ><img src="./logo.png" alt="" width="40px" height="40px" /></Link>
         <button  className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span  className="navbar-toggler-icon"></span>
+          <span  className="navbar-toggler-icon" onClick={()=>setDisp(disp=>(!disp))}></span>
         </button>
-        <div  className="collapse navbar-collapse" id="navbarSupportedContent">
+        <div  className="collapse navbar-collapse" style={disp ? {display:"block"} : {display:"none"}} id="navbarSupportedContent">
           <ul  className="navbar-nav me-auto mb-2 mb-lg-0">
             <li  className="nav-item">
               <IoHomeOutline   className="fs-4 nav-icon"/>
