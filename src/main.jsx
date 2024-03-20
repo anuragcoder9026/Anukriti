@@ -7,6 +7,7 @@ import Home from './components/Home.jsx';
 import Sign from './components/Sign.jsx';
 import Write from './components/write.jsx';
 import Create from './components/Create.jsx';
+import Explore from './components/Explore.jsx';
 const router=createBrowserRouter([
   {
   path:"/",
@@ -15,7 +16,8 @@ const router=createBrowserRouter([
   {path:"/Anukriti",element:<Home/>},
   {path:"/sign",element:<Sign/>},
   {path:"/write",element:<Write/>},
-  {path:"/create",element:<Create/>}
+  {path:"/create",element:<Create/>},
+  {path:"/explore",element:<Explore/>}
   ]
   }
   ]);

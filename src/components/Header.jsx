@@ -23,7 +23,7 @@ function Header(){
             </li>
             <li  className="nav-item">
             <MdOutlineExplore   className="fs-4 nav-icon category"/>
-              <Link to="#"  className="nav-link " aria-disabled="true">Category</Link>
+              <Link to="/explore"  className="nav-link " aria-disabled="true">Explore</Link>
             </li>
             <li  className="nav-item">
             <MdOutlineEdit   className="fs-4 nav-icon"/>
