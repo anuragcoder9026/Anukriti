@@ -8,6 +8,7 @@ import Sign from './components/Sign.jsx';
 import Write from './components/write.jsx';
 import Create from './components/Create.jsx';
 import Explore from './components/Explore.jsx';
+import AboutStory from './components/AboutStory.jsx';
 const router=createBrowserRouter([
   {
   path:"/",
@@ -17,7 +18,8 @@ const router=createBrowserRouter([
   {path:"/sign",element:<Sign/>},
   {path:"/write",element:<Write/>},
   {path:"/create",element:<Create/>},
-  {path:"/explore",element:<Explore/>}
+  {path:"/explore",element:<Explore/>},
+  {path:"/aboutStory",element:<AboutStory/>}
   ]
   }
   ]);

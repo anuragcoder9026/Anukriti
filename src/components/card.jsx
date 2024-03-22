@@ -5,7 +5,7 @@ import cardImg from '../assets/card1.jpg';
 function Card(){
     return(
         <>
-        <Link to="#" style={{textDecoration: 'none'}}>
+        <Link to="/aboutStory" style={{textDecoration: 'none'}}>
         <div class="card" style={{
             background:`url(${cardImg})`,
             backgroundRepeat:"no-repeat",
