@@ -112,7 +112,7 @@
             flex-wrap: wrap;
         }
         .col2{
-            height: 450px;
+            height: 400px;
         }
         .btn-story-read button{
             padding:4% 17%;
@@ -121,7 +121,14 @@
           .descript-col4{
             width: 70%;
           }
+          
+          .descript-col3 p{
+             text-align: center;
+          }
           .story-para{
             font-size: 14px;
+          }
+          .btn-story-library{
+            margin-right: 10px;
           }
       }

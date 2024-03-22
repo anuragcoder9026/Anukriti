@@ -4,7 +4,7 @@ import '../CSS/aboutStory.css';
 import cardImg from '../assets/card1.jpg';
 function AboutStory(){
     return(
-        <div class="about-story-row" style={{marginTop:"87px",backgroundColor:"#f1ecec",paddingTop:"30px"}}>
+        <div class="about-story-row" style={{marginTop:"87px",backgroundColor:"#f1ecec",paddingTop:"25px",paddingBottom:"15px"}}>
         <div class="about-story-col col1">
             <img src={cardImg} alt="" srcset="" style={{marginTop:"10px",borderRadius:"10px"}}/>
         </div>
@@ -31,7 +31,7 @@ function AboutStory(){
                   <p style={{fontSize:"15px"}}>Reading Count</p>
                   </div>
             </div>
-            <div class="btn-story">
+            <div class="btn-story" >
                <div class="btn-story-read"><button type="button" class="btn btn-danger">Read Now</button></div>
                <div class="btn-story-library"><MdOutlineLibraryAdd className="fs-2"style={{marginTop:"8px"}}/></div>
                <div class="btn-story-download"><GrDownload className="fs-3" style={{marginTop:"6px"}}/></div>
