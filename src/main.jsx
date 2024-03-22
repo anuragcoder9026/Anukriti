@@ -15,11 +15,11 @@ const router=createBrowserRouter([
   element:<App />,
   children:[
   {path:"/Anukriti",element:<Home/>},
-  {path:"/sign",element:<Sign/>},
-  {path:"/write",element:<Write/>},
-  {path:"/create",element:<Create/>},
-  {path:"/explore",element:<Explore/>},
-  {path:"/aboutStory",element:<AboutStory/>}
+  {path:"/Anukriti/sign",element:<Sign/>},
+  {path:"/Anukriti/write",element:<Write/>},
+  {path:"/Anukriti/create",element:<Create/>},
+  {path:"/Anukriti/explore",element:<Explore/>},
+  {path:"/Anukriti/aboutStory",element:<AboutStory/>}
   ]
   }
   ]);

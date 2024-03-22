@@ -28,16 +28,16 @@ function Header(){
             </li>
             <li  className="nav-item">
             <MdOutlineExplore   className="fs-4 nav-icon category"/>
-              <Link to="/explore"  className="nav-link " aria-disabled="true">Explore</Link>
+              <Link to="/Anukriti/explore"  className="nav-link " aria-disabled="true">Explore</Link>
             </li>
             <li  className="nav-item">
             <MdOutlineEdit   className="fs-4 nav-icon"/>
-              <Link to="/create"  className="nav-link"  >Write</Link>
+              <Link to="/Anukriti/create"  className="nav-link"  >Write</Link>
             </li>
 
             <li  className="nav-item">
             <CgProfile   className="fs-4 nav-icon"/>
-              <Link to="/sign"  className="nav-link " aria-disabled="true">Sign In</Link>
+              <Link to="/Anukriti/sign"  className="nav-link " aria-disabled="true">Sign In</Link>
             </li>
             <li  className="dropdown nav-dropdown">
               <button  className="btn btn-primary dropdown-toggle text-white py-2 border-2 border-danger" type="button" data-bs-toggle="dropdown" aria-expanded="false">

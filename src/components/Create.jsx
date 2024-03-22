@@ -11,7 +11,7 @@ function Create() {
         <p style={{ fontSize: "1rem" }}>
           Here, you can write your Creation on Anukriti...
         </p>
-        <Link to="/write" class="btn btn-danger">
+        <Link to="/Anukriti/write" class="btn btn-danger">
           Add new Creation
         </Link>
       </div>
