@@ -63,7 +63,7 @@ function Profile(){
             <span class="info-ele" style={{color: selectedSpan === 'follower' ? 'red' : 'black',borderBottom:selectedSpan === 'follower' ? '2px solid red': 'none'}} onClick={() => handleClick('follower')}>Followers</span>
             <span class="info-ele foll"style={{color: selectedSpan === 'following' ? 'red' : 'black',borderBottom:selectedSpan === 'following' ? '2px solid red': 'none'}} onClick={() => handleClick('following')}>Following</span>
         </div>
-        <div className="library" style={{display:"flex",marginTop:"15px",marginLeft:"5%",gap:"8px",flexWrap:"wrap",height:"100%"}}>
+        <div className="library" style={{display:"flex",marginTop:"15px",marginLeft:"5%",gap:"4px",flexWrap:"wrap",height:"100%"}}>
         {myArray.map(() => (
           (selectedSpan==='library' && <Library/>) || (selectedSpan==='content' && <Content/>)
         ))}

@@ -6,7 +6,7 @@ function Content(){
 
 
     return(
-         <div className="user-content" style={{width:"151px",height:"300px",border:"1px solid #d3d2d2"}}>
+         <div className="user-content" style={{width:"151px",height:"300px",border:"1px solid #d3d2d2",marginBottom:"6px"}}>
              <img src={contentImg} alt="" srcset="" style={{width:"150px",height:"220px"}}/>
               <div style={{color:"#555",marginTop:"8px",fontWeight:"bold",paddingLeft:"8px",fontSize:"14px",marginBottom:"5px"}}>Time Travel</div>
               <div style={{color:"#555",paddingLeft:"8px",fontSize:"12px",fontWeight:"500"}}><MdDateRange class="fs-6 mb-1" style={{marginRight:"3px"}}/>30 july 2024</div>
