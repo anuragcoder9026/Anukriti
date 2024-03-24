@@ -6,6 +6,7 @@ import { useState } from 'react';
     import Button from 'react-bootstrap/Button';
     import Modal from 'react-bootstrap/Modal';
 import Library from './Library';
+import Content from './Content';
 function Profile(){
     const [show, setShow] = useState(false);
     const handleClose = () =>setShow(false);
@@ -15,7 +16,7 @@ function Profile(){
     const handleClick = (spanElement) => {
         setSelectedSpan(spanElement);
       };
-
+      const myArray = [1, 2, 3, 4, 5,6,7,8,9,10,11,12];
     function Example() {
       return (
         <>
@@ -63,7 +64,9 @@ function Profile(){
             <span class="info-ele foll"style={{color: selectedSpan === 'following' ? 'red' : 'black',borderBottom:selectedSpan === 'following' ? '2px solid red': 'none'}} onClick={() => handleClick('following')}>Following</span>
         </div>
         <div className="library" style={{display:"flex",marginTop:"15px",marginLeft:"5%",gap:"8px",flexWrap:"wrap",height:"100%"}}>
-            <Library/><Library/><Library/><Library/><Library/><Library/><Library/><Library/>
+        {myArray.map(() => (
+          (selectedSpan==='library' && <Library/>) || (selectedSpan==='content' && <Content/>)
+        ))}
         </div>
         </div>
     )
