@@ -39,6 +39,11 @@ function Header(){
             <CgProfile   className="fs-4 nav-icon"/>
               <Link to="/Anukriti/sign"  className="nav-link " aria-disabled="true">Sign In</Link>
             </li>
+            <li  className="nav-item">
+            <CgProfile   className="fs-4 nav-icon"/>
+              <Link to="/Anukriti/profile"  className="nav-link " aria-disabled="true">Profile</Link>
+            </li>
+            
             <li  className="dropdown nav-dropdown">
               <button  className="btn btn-primary dropdown-toggle text-white py-2 border-2 border-danger" type="button" data-bs-toggle="dropdown" aria-expanded="false">
               Choose Language

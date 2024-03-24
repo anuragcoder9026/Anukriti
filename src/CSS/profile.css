@@ -1,0 +1,37 @@
+
+.cover-image{
+    background-image:url("../assets/cover-image.jpg");
+    width:100%;
+    height:150px;
+    background-size:cover;
+    background-position:50%;
+    background-repeat:no-repeat;
+}
+.user-about{
+    font-size: 14px;
+    color: #555;
+    height: 61px;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+.user-info{
+    border-bottom: 1px solid #d3d2d2;
+    padding-bottom: 10px;
+    text-align: left;
+    overflow: hidden;
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.info-ele{
+    margin-right:20px;
+    font-size:15px;
+    cursor: pointer;
+    font-weight: 500;
+    padding-bottom:11px;
+}
