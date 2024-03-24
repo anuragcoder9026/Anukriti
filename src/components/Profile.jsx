@@ -5,6 +5,7 @@ import { ImPencil } from "react-icons/im";
 import { useState } from 'react';
     import Button from 'react-bootstrap/Button';
     import Modal from 'react-bootstrap/Modal';
+import Library from './Library';
 function Profile(){
     const [show, setShow] = useState(false);
     const handleClose = () =>setShow(false);
@@ -39,7 +40,7 @@ function Profile(){
     }
  
     return(
-        <div className="profile" style={{width:"90%",height:"700px",margin:"100px auto",}}>
+        <div className="profile" style={{width:"90%",margin:"100px auto",}}>
         <div className="cover-image" style={{}}>
         </div>
         <div className="user" style={{position:"relative",top:"-50px",}}>
@@ -60,6 +61,9 @@ function Profile(){
             <span class="info-ele" style={{color: selectedSpan === 'content' ? 'red' : 'black',borderBottom:selectedSpan === 'content' ? '2px solid red': 'none'}} onClick={() => handleClick('content')}>Content</span>
             <span class="info-ele" style={{color: selectedSpan === 'follower' ? 'red' : 'black',borderBottom:selectedSpan === 'follower' ? '2px solid red': 'none'}} onClick={() => handleClick('follower')}>Followers</span>
             <span class="info-ele foll"style={{color: selectedSpan === 'following' ? 'red' : 'black',borderBottom:selectedSpan === 'following' ? '2px solid red': 'none'}} onClick={() => handleClick('following')}>Following</span>
+        </div>
+        <div className="library" style={{display:"flex",marginTop:"15px",marginLeft:"5%",gap:"8px",flexWrap:"wrap",height:"100%"}}>
+            <Library/><Library/><Library/><Library/><Library/><Library/><Library/><Library/>
         </div>
         </div>
     )
