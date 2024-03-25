@@ -3,10 +3,13 @@ import followerImg from '../assets/follower-image.jpg';
 import { TiTick } from "react-icons/ti";
 import { IoPersonAdd } from "react-icons/io5";
 import { useState } from 'react';
+import folloSound from '../assets/follow-sound.mp3';
 function Follower(){
+      const [audio] = useState(new Audio(folloSound));
       const [follow,setFollow]=useState('Follow');
       const handleFollow=()=>{
         setFollow(follow === 'Follow' ? 'Following' : 'Follow');
+        audio.play();
       }
     return(
           <div className="user-follower" style={{width:"151px",height:"211px",border:"1px solid #d3d2d2",marginBottom:"6px"}}>
