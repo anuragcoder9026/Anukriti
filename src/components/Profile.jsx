@@ -7,6 +7,7 @@ import { useState } from 'react';
     import Modal from 'react-bootstrap/Modal';
 import Library from './Library';
 import Content from './Content';
+import Follower from './Follower';
 function Profile(){
     const [show, setShow] = useState(false);
     const handleClose = () =>setShow(false);
@@ -65,7 +66,7 @@ function Profile(){
         </div>
         <div className="library" style={{display:"flex",marginTop:"15px",marginLeft:"5%",gap:"4px",flexWrap:"wrap",height:"100%"}}>
         {myArray.map(() => (
-          (selectedSpan==='library' && <Library/>) || (selectedSpan==='content' && <Content/>)
+          (selectedSpan==='library' && <Library/>) || (selectedSpan==='content' && <Content/>) || (selectedSpan==='follower' && <Follower/>)||(selectedSpan==='following' && <Follower/>)
         ))}
         </div>
         </div>
