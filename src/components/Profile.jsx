@@ -8,6 +8,10 @@ import { useState } from 'react';
 import Library from './Library';
 import Content from './Content';
 import Follower from './Follower';
+import { IoSettings } from "react-icons/io5";
+import { FaPlusCircle } from "react-icons/fa";
+import { Link } from 'react-router-dom';
+
 function Profile(){
     const [show, setShow] = useState(false);
     const handleClose = () =>setShow(false);
@@ -43,7 +47,9 @@ function Profile(){
  
     return(
         <div className="profile" style={{width:"90%",margin:"100px auto",}}>
-        <div className="cover-image" style={{}}>
+        <div className="cover-image" style={{display:"flex",justifyContent:"flex-end"}}>
+            <Link to="/Anukriti/setting" style={{marginTop:"15px",marginRight:"2%",color:"black"}}>
+        <IoSettings style={{fontSize:"40px",backgroundColor:"white",padding:"8px",borderRadius:"50%"}} /> </Link>
         </div>
         <div className="user" style={{position:"relative",top:"-50px",}}>
                 <div className="user-img" style={{display:"flex",justifyContent:"center"}}>

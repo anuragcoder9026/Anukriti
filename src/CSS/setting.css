@@ -1,0 +1,41 @@
+.setting-info{
+    border-bottom: 1px solid #d3d2d2;
+    padding-bottom: 9.5px;
+    text-align: left;
+    overflow: hidden;
+    width: 85%;
+    overflow-x: auto;
+    white-space: nowrap;
+    margin-top: 30px;
+    margin-left:11%;
+}
+
+.setting-info-ele{
+    margin-right:20px;
+    font-size:14px;
+    cursor: pointer;
+    font-weight: 500;
+    padding-bottom:11px;
+}
+@media screen and (max-width: 350px) {
+    .setting-info{
+        margin-left:7%;
+    }
+    .setting-info-ele{
+        font-size:12px;
+        margin-right:10px;
+    }
+}
+label{
+    font-size:13px;
+    font-weight: 600;
+}
+.summary{
+    height:150px;
+    width:50%;   
+}
+@media screen and (max-width: 767px) {
+ .summary{
+    width:100%;
+ }
+}
