@@ -37,8 +37,8 @@ function SettingProfile(){
           <input type="email" class="form-control" id="validationDefault06"  required/>
     </div>
     <div class="col-md-6">
-          <label for="validationDefault07" class="form-label">Password</label>
-          <input type="password" class="form-control" id="validationDefault07"  required/>
+          <label for="validationDefault07" class="form-label">Phone</label>
+          <input type="tel" class="form-control" id="validationDefault07"  />
     </div>
         <div class="col-12">
           <div class="form-check">

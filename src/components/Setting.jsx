@@ -2,6 +2,8 @@ import { useState } from "react";
 import { BiLogOutCircle } from "react-icons/bi";
 import '../CSS/setting.css'
 import SettingProfile from "./SettingProfile";
+import SettingNotify from "./SettingNotify";
+import SettingPassword from "./SettingPassword";
  function Setting(){
 
     const [selectedSpan, setSelectedSpan] = useState('Profile');
@@ -20,7 +22,10 @@ import SettingProfile from "./SettingProfile";
             <span class="setting-info-ele" style={{color: selectedSpan === 'Notification' ? 'red' : 'black',borderBottom:selectedSpan === 'Notification' ? '2px solid red': 'none'}} onClick={() => handleClick('Notification')}>Notification</span>
             <span class="setting-info-ele" style={{color: selectedSpan === 'Update Password' ? 'red' : 'black',borderBottom:selectedSpan === 'Update Password' ? '2px solid red': 'none'}} onClick={() => handleClick('Update Password')}>Update Password</span>
         </div>
-          <SettingProfile/>
+
+        {
+            (selectedSpan==='Profile' &&  <SettingProfile/>) || (selectedSpan==='Notification' && <SettingNotify/>) || (selectedSpan==='Update Password' && <SettingPassword/>)
+        }
          </div>
 
    )

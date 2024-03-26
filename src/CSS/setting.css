@@ -26,7 +26,11 @@
         margin-right:10px;
     }
 }
-label{
+label {
+    font-size:13px;
+    font-weight: 600;
+}
+.content, .network{
     font-size:13px;
     font-weight: 600;
 }
@@ -34,8 +38,14 @@ label{
     height:150px;
     width:50%;   
 }
+.password{
+    width: 49%;
+ }
 @media screen and (max-width: 767px) {
  .summary{
     width:100%;
+ }
+ .password{
+    width: 100%;
  }
 }
