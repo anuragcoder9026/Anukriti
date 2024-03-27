@@ -1,4 +1,7 @@
-
+a{
+    text-decoration: none;
+    color: black;
+}
 .genre-title{
     text-align: left;
     line-height: 1.75rem;
