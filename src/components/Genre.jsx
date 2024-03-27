@@ -5,7 +5,7 @@ function Genre({genre,genreImg}){
 
     return(
          
-          <Link to="#" className="genre" style={{
+          <Link to="/Anukriti/genre" className="genre" style={{
             backgroundImage:` linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 1) 100%),url(${genreImg})`,
             backgroundRepeat:"no-repeat",
             width:"350px",

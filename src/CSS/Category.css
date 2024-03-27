@@ -1,0 +1,81 @@
+
+.genre-title{
+    text-align: left;
+    line-height: 1.75rem;
+    bottom: 0;
+    height: 60px;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical !important;
+    word-break: break-word;
+    margin-left: 11px;
+    font-size: 1.4rem;
+}
+
+.genre-desc{
+    width: 90%;
+    text-align: left;
+    font-size: 13px;
+    line-height: 20px;
+    bottom: 0;
+    margin: 3px 0 5px;
+    height: 60px;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical !important;
+    color: #555;
+    word-break: break-word;
+    margin-left: 11px;
+    margin-top: 8px;
+}
+.genre-card{
+    width: 460px;
+}
+@media screen and (max-width:980px) {
+    .genre-card{
+        width: 420px;
+    }
+}
+@media screen and (max-width:900px) {
+    .genre-card{
+        width: 390px;
+    }
+}
+@media screen and (max-width:840px) {
+    .genre-card{
+        width: 330px;
+    }
+}
+@media screen and (max-width:720px) {
+    .genre-card{
+        width: 600px;
+    }
+}
+.genre-reading{
+    font-size: 14px;
+}
+.genre-author{
+    margin-bottom: 5px;
+}
+@media screen and (max-width:340px) {
+    .genre-reading{
+        font-size: 12px;
+    }
+    .genre-title{
+        font-size: 1.2rem;
+    }
+}
+@media screen and (max-width:310px) {
+    .genre-reading{
+        font-size: 10px;
+    }
+    .genre-title{
+        font-size: 1.2rem;
+    }
+}
