@@ -1,7 +1,8 @@
 
 
+import Genre from "./Genre";
 import Card from "./card";
-function Category({genre}){
+function Category({genre,genreImg}){
     return(
         <div style={{marginTop:"10px"}}>
 
@@ -18,11 +19,7 @@ function Category({genre}){
        }></span> 
        <h1 style={{display:"inline-block", marginLeft:"15px",fontFamily:"initial",fontWeight:"bold"}}>{genre}</h1>
        <div className="d-flex card-cont" style={{overflow:"scroll"}}>
-     <Card/><Card/><Card/><Card/><Card/><Card/>
-     <Card/><Card/><Card/><Card/><Card/><Card/>
-     <Card/><Card/><Card/><Card/><Card/><Card/>
-     <Card/><Card/><Card/><Card/><Card/><Card/>
-     <Card/><Card/><Card/><Card/><Card/><Card/>
+       <Genre genre={genre} genreImg={genreImg}/>
      </div>
 
         </div>
