@@ -31,13 +31,13 @@ function SettingNotify(){
         </div>
         <div className="content">Anukriti Content</div>
          <div class="form-check" style={{marginTop:"6px",marginLeft:"20px",}}>
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked/>
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" />
                <label class="form-check-label " for="flexCheckChecked" style={{fontWeight:"500"}}>
                 Anukriti Review
                 </label>
         </div>
         <div class="form-check" style={{marginTop:"3px",marginLeft:"20px",}}>
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked/>
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"/>
                <label class="form-check-label " for="flexCheckChecked" style={{fontWeight:"500"}}>
                Anukriti Comment
                 </label>
@@ -45,13 +45,13 @@ function SettingNotify(){
 
         <div className="network" style={{marginTop:"20px"}}>Anukriti Network</div>
          <div class="form-check" style={{marginTop:"6px",marginLeft:"20px",}}>
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked/>
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" />
                <label class="form-check-label " for="flexCheckChecked" style={{fontWeight:"500"}}>
                New Anukriti Follower
                 </label>
         </div>
         <div class="form-check" style={{marginTop:"3px",marginLeft:"20px",}}>
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked/>
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" />
                <label class="form-check-label " for="flexCheckChecked" style={{fontWeight:"500"}}>
                New Content by your Anukriti follower
                 </label>

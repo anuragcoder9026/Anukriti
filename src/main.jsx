@@ -11,6 +11,7 @@ import Explore from './components/Explore.jsx';
 import AboutStory from './components/AboutStory.jsx';
 import Profile from './components/Profile.jsx';
 import Setting from './components/Setting.jsx';
+import OtherCreationInfo from './components/OtherCreationInfo.jsx';
 const router=createBrowserRouter([
   {
   path:"/",
@@ -23,7 +24,8 @@ const router=createBrowserRouter([
   {path:"/Anukriti/explore",element:<Explore/>},
   {path:"/Anukriti/aboutStory",element:<AboutStory/>},
   {path:"/Anukriti/profile",element:<Profile/>},
-  {path:"/Anukriti/setting",element:<Setting/>}
+  {path:"/Anukriti/setting",element:<Setting/>},
+  {path:"/Anukriti/other-story",element:<OtherCreationInfo/>}
   ]
   }
   ]);

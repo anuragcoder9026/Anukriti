@@ -1,0 +1,211 @@
+
+.other-creation{
+    background-color: rgb(241, 236, 236);
+    margin-top: 65px;
+    padding-top: 15px;
+}
+.read-now-upper {
+    display: flex;
+}
+.read-next-upper {
+    display: flex;
+}
+.read-now-upper span{
+    font-size: 12px;
+    color: #737373;
+    margin-left: 10px;
+}
+.read-now-upper-left{
+    width: 160px;
+    height: 256px;
+}
+.read-next-upper-left{
+    width: 90px;
+    height: 105px;
+}
+.other-creation-info{
+    display: flex;
+    width: 90%;
+    margin:0px auto;
+}
+.other-creation-left{
+width: 40%;
+padding: 8px;
+margin-top: 5px;
+}
+.other-creation-right{
+    width: 60%;
+    padding: 8px;
+    margin-top: 5px;
+    }
+@media screen and (max-width: 900px) {
+    .other-creation-info{
+     flex-direction: column;
+    }
+    .other-creation-left{
+        width: 90%;
+        margin:0px auto
+        }
+        .other-creation-right{
+            width: 90%;
+            margin: 5px auto;
+            }
+  }
+  @media screen and (max-width: 610px) {
+    .other-creation-info{
+     flex-direction: column;
+     width: 98%;
+    }
+    .other-creation-left{
+        width: 100%;
+        margin:0px auto
+        }
+        .other-creation-right{
+            width: 100%;
+            margin: 5px auto;
+            }
+  }
+  .read-now-share span{
+    font-size: 14px;
+    font-weight: 500;
+   }
+  @media screen and (max-width: 305px) {
+      .read-now-upper-left{
+        width: 130px;
+        height: 220px;
+      }
+      
+       .read-now-share{
+        text-align: left;
+       }
+       .read-now-share span{
+        font-size: 12px;
+       }
+  }
+.summary{
+    width: 90%;
+    text-align: left;
+    font-size: 13px;
+    line-height: 20px;
+    bottom: 0;
+    margin: 3px 0 5px;
+    height: 80px;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical !important;
+    color: #555;
+    word-break: break-word;
+    margin-left: 11px;
+    margin-top: 8px;
+}
+
+.library-btn{
+    background: #fff;
+    color: #036974;
+    border: 1px solid #036974;
+    margin-top: 8px;
+    width: 47%;
+    padding: 10px 0px;
+    font-size: 17px;
+    font-weight: bold;
+}
+.read-btn{
+    background: #d0021b;
+    border: 1px solid #d0021b;
+    text-decoration: none;
+    margin-top: 8px;
+    width: 50%;
+    padding: 11px 0px;
+    font-size: 17px;
+    font-weight: bold;
+    color: white;
+    margin-left: 5px;
+}
+.download-btn{
+    background: #fff;
+    border: 2px solid #d3302f;
+    color: #d3302f;
+    margin-top: 8px;
+    width: 100%;
+    padding: 6px 0px;
+    font-size: 17px;
+    font-weight: bold;
+}
+.read-next-btn{
+    color: #fff;
+    border: 2px solid #d3302f;
+    background-color: #d3302f;
+    margin-top: 8px;
+    width: 100%;
+    padding: 6px 0px;
+    font-size: 17px;
+    font-weight: bold;
+}
+.about-title, .review-title{
+    text-align: left;
+    font-weight: 700;
+    font-size: 18px;
+    border-left: 3px solid #d0021b;
+    padding-left: 10px;
+    margin: 10px 0;
+}
+
+.before-rating-star{
+    font-size: 35px;
+    margin-right: 10px;
+    color: #036974;
+}
+.review-cancel{
+    background-color: #f7f4f4;
+}
+.review-cancel:hover{
+    background-color: #e6e5e5;
+}
+
+.comment-content{
+    width: 95%;
+    background-color: rgb(245, 242, 242);
+    padding:5px 10px;
+    position: relative;
+    margin-left: 20px;
+    margin-right: 10px;
+  }
+  .comment-content:after {
+    content: " ";
+    position: absolute;
+    left: -15px;
+    top: 15px;
+    border-top: 15px solid transparent;
+    border-right: 15px solid rgb(245, 242, 242);
+    border-left: none;
+    border-bottom: 15px solid transparent;
+  }  
+
+  .commentor-name a{
+    text-decoration:none;
+  }
+  .commentor-name a:hover{
+    text-decoration: underline;
+  }
+
+  .commentor-name{
+    padding-bottom: 10px;
+    border-bottom: 1px solid #d3d3d3;
+  }
+  .comment-desc{
+    color: #595959;
+    font-size: 14px;
+    width: 97%;
+    margin: 20px auto;
+    margin-bottom: 10px;
+  }
+  .like{
+    color: #595959;
+    font-size: 14px;
+    width: 100%;
+    padding: 0px 8px;
+    border-bottom: 1px solid #d3d3d3;
+  }
