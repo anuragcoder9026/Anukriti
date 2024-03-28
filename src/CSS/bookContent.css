@@ -1,0 +1,104 @@
+
+.book-content{
+    margin-top: 60px;
+    background-color: rgb(241, 236, 236);
+    width: 100%;
+    padding-top: 2%;
+    padding-bottom: 30px;
+}
+.book-content-header{
+    width: 95%;
+    background-color: white;
+    height: 50px;
+    margin: 10px auto;
+    display: flex;
+    
+}
+.bch-right{
+    display: flex;
+    justify-content: flex-end;
+    height: 100%;
+    width: 30%;
+    padding-top: 14px;
+    padding-right: 4%;
+}
+.bch-left{
+    height: 100%;
+    width: 70%;
+    padding-top: 12px;
+    padding-left: 8%;
+}
+.book-content-body{
+    background-color: white;
+    width: 95%;
+    margin: 0px auto;
+    padding-bottom: 20px;
+}
+.chapter-title{
+    font-size: 22px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 20px;
+   padding-top: 10px;
+}
+.chapter-body{
+    width: 80%;
+    margin: 0 auto;
+    text-align: left;
+    padding-bottom: 35px;
+}
+.rate-share{
+    width: 80%;
+    margin: 0px auto;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 5%;
+}
+@media screen and (max-width: 400px) {
+    .chapter-body{
+        width: 85%;
+    }
+    .rate-share{
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 310px) {
+    .book-content-header{
+        flex-direction: column;
+        height: 80px;
+    }
+    .bch-left{
+        height:50%;
+    }
+    .bch-right{
+        height: 50%;
+        width: 100%;
+        padding-top:8px;
+        padding-right: 4%;
+    }
+}
+.chapter-next{
+    width: 500px;
+    margin: 10px auto ;
+}
+@media screen and (max-width: 545px) {
+    .chapter-next{
+        width: 90%;
+    }
+}
+.all-review-btn{
+    background: #fff;
+    color: #036974;
+    border: 2px solid #036974;
+    margin-top: 8px;
+    width: 220px;
+    padding: 7px 0px;
+    font-size: 17px;
+    font-weight: bold;
+    text-decoration: none;
+}
+.all-review-btn:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}

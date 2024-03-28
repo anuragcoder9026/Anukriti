@@ -27,7 +27,7 @@ function ReadNow(){
             <div className="read-now-bottom">
                 <div className="read-now-actions">
                     <button className="library-btn"> < MdOutlineLibraryAdd style={{fontSize:"25px",marginRight:"5px"}}/>Library</button>
-                    <Link to="#">
+                    <Link to="/Anukriti/book-content">
                         <button className="read-btn"> Read now</button>
                     </Link>
 

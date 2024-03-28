@@ -1,5 +1,8 @@
 
-    
+    a{
+      text-decoration: none;
+      color: black;
+    }
       .about-story-row{
         display: flex;
       }

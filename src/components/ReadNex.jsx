@@ -6,7 +6,7 @@ import StarCount from './SatrCount';
 function ReadNext(){
     
     return(
-        <div className="read-next" style={{width:"100%",padding:"0px",marginTop:"35px"}}>
+        <div className="read-next" style={{padding:"0px",marginTop:"35px"}}>
         <div className="read-next-upper" style={{}}>
             <img src={CreateImg} alt="" srcset="" className="read-next-upper-left" />
             <div className="read-next-upper-right">
@@ -14,7 +14,7 @@ function ReadNext(){
                 <p style={{fontWeight:"450",marginLeft:"8px",marginBottom:"4px"}}>Starting Falling For you</p>
                 <p style={{fontSize:"12px",fontWeight:"500",marginLeft:"8px",marginBottom:"2px"}}>Anurag Singh</p>
                 
-                <div style={{fontSize:"12px",marginLeft:"8px"}}> <StarCount rating={4.8} ratingColor='#056974'/><span style={{marginLeft:"5px"}}>4.8</span> </div>
+                <div style={{fontSize:"12px",marginLeft:"8px"}}> <StarCount rating={4.8} ratingColor='#056974' size='10px'/><span style={{marginLeft:"5px"}}>4.8</span> </div>
                    
             </div>
         </div>
