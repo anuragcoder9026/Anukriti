@@ -13,6 +13,14 @@ import StarCount from "./SatrCount";
 import { Link } from "react-router-dom";
 import ReadNext from "./ReadNex";
 import readingMusic from '../assets/reading-music.mp3';
+import { RxCross2 } from "react-icons/rx";
+import { HiPlus } from "react-icons/hi";
+import { FaMinus } from "react-icons/fa6";
+import { MdLibraryBooks } from "react-icons/md";
+import { MdOutlineLibraryBooks } from "react-icons/md";
+import { CgFormatLineHeight } from "react-icons/cg";
+import { MdOutlineDensitySmall } from "react-icons/md";
+import lineDec from '../assets/lineHigh.webp';
 function BookContent(){
   const [audio] = useState(new Audio(readingMusic));
   const [music,setMusic]=useState(false);
@@ -27,8 +35,38 @@ function BookContent(){
     audio.pause();
   };
 
+
+  const [chSetting,setChSetting]=useState(false);
+  const handleSetting=()=>{setChSetting(chSetting=>!chSetting); }
+
+  const [fontSiz,setFontSiz]=useState(16);
+  const handleIncSize=()=> {setFontSiz(fontSiz=>fontSiz+1)};
+  const handleDecSize=()=> {setFontSiz(fontSiz=>fontSiz-1)};
+
+  const [lineHigh,setlineHigh]=useState(1.6);
+  const handleLineHigh=(val)=>{setlineHigh(val)};
+
+  const [backColor,setBackColor]=useState(true);
+  const handleBackColor=(val)=>{setBackColor(val)};
+
     return(
-           <div className="book-content">
+           <div className="book-content" >
+              {
+                (chSetting &&  <div className="chapter-setting" style={{width:"100%",height:"185px",position:"fixed",top:"180px",zIndex:"1999"}}>
+                <div className="chapter-setting-modal">
+                    <div style={{display:"flex",justifyContent:"flex-end",fontSize:"24px"}}><RxCross2 onClick={handleSetting}/></div>
+                    <div className="chapter-option"><span>Font Size: </span><HiPlus style={{color:"black",fontSize:"17px",marginLeft:"6px"}} onClick={handleIncSize}/><FaMinus style={{color:"black",fontSize:"17px",marginLeft:"14px"}} onClick={handleDecSize}/></div>
+                    <div className="chapter-option"><span>Background: </span><MdLibraryBooks style={{fontSize:"30px",marginLeft:"6px",marginBottom:"7px",color:"black"}} onClick={()=>handleBackColor(false)}/><MdOutlineLibraryBooks style={{fontSize:"30px",marginLeft:"14px",marginBottom:"7px",color:"gray"}} onClick={()=>handleBackColor(true)}/></div>
+                    <div className="chapter-option"><span> Line Spacing: </span>
+                    <CgFormatLineHeight style={{fontSize:"30px",marginLeft:"6px",marginBottom:"7px",color:"black"}} onClick={()=>{handleLineHigh(2.0)}}/>
+                    
+                    <MdOutlineDensitySmall style={{fontSize:"22px",marginLeft:"16px",marginBottom:"7px",color:"black"}} onClick={()=>{handleLineHigh(1.6)}}/>
+                    
+                    <img src={lineDec} alt="" style={{width:"33px",height:"27px",color:"red",marginBottom:"7px",marginLeft:"16px"}} onClick={()=>{handleLineHigh(1.2)}}/>
+                    </div>
+                </div>
+             </div>)
+              }
                   <div className="book-content-header">
                       <div className="bch-left">
                       <Link to="/Anukriti/aboutStory"><FaArrowLeft style={{marginRight:"15px"}}/></Link><span>Love Story (1)</span><TiArrowSortedDown style={{marginLeft:"7px"}}/>
@@ -38,13 +76,13 @@ function BookContent(){
                            (music &&  <MdMusicNote style={{fontSize:"23px"}} onClick={handlePause}   />) ||
                            (!music && <MdMusicOff style={{fontSize:"23px"}} onClick={handlePlay} />)
                         }
-                        <IoMdSettings style={{fontSize:"23px",marginLeft:"10px",marginRight:"10px"}}/>
+                        <IoMdSettings style={{fontSize:"23px",marginLeft:"10px",marginRight:"10px"}} onClick={handleSetting}/>
                         <PiDotsThreeOutlineVerticalFill style={{fontSize:"20px"}}/>
                       </div>
                   </div>
-                  <div className="book-content-body">
+                  <div className="book-content-body" style={{opacity:chSetting ? .4 : 1.0,color:backColor ? 'black' :'white',backgroundColor:backColor ? 'white' :'black'}}>
                          <div className="chapter-title">Love Story (1)</div>
-                         <div className="chapter-body">
+                         <div className="chapter-body" style={{color:backColor ? '#2c3e50' :'white',fontSize:`${fontSiz}px`,lineHeight:lineHigh}}>
                          Title: The Forgotten Diary
 
 Once upon a time, in a small village nestled between rolling hills and lush green forests, there lived a young girl named Lily. Lily was an adventurous soul, always eager to explore the mysteries hidden within the nooks and crannies of her village. One sunny afternoon, while rummaging through the attic of her old family home, she stumbled upon a dusty old diary tucked away in a forgotten corner.

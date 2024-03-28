@@ -1,4 +1,24 @@
 
+.chapter-setting-modal{
+    width: 348px;
+    height: 181px;
+    margin: 0px auto;
+    background-color:white;
+    padding: 16px;
+    color: #2c3e50;
+}
+.chapter-option{
+    text-align: left;
+    font-size: 14px;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+}
+.chapter-setting-modal span{
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+}
 .book-content{
     margin-top: 60px;
     background-color: rgb(241, 236, 236);
@@ -60,6 +80,14 @@
     }
     .rate-share{
         width: 90%;
+    }
+    .chapter-setting-modal{
+        width: 300px;
+    }
+}
+@media screen and (max-width: 336px) {
+    .chapter-setting-modal{
+        width: 255px;
     }
 }
 
