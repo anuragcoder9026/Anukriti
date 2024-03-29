@@ -27,7 +27,7 @@ const router=createBrowserRouter([
   {path:"/Anukriti/create",element:<Create/>},
   {path:"/Anukriti/explore",element:<Explore/>},
   {path:"/Anukriti/aboutStory",element:<AboutStory/>},
-  {path:"/Anukriti/profile",element:<Profile/>},
+  {path:"/Anukriti/profile/:id",element:<Profile/>},
   {path:"/Anukriti/setting",element:<Setting/>},
   {path:"/Anukriti/other-story/:id",element:<OtherCreationInfo/>},
   {path:"/Anukriti/genre",element:<Category/>},

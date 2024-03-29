@@ -12,6 +12,7 @@
     position: fixed;
     top: 130px;
     transition: all 0.3s;
+    z-index: 3000;
 }
 .modal-logo{
     font-size: 30px;

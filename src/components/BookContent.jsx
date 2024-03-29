@@ -255,7 +255,7 @@ And so, as the dawn broke over the horizon and the birds began to sing, Lily eme
                             </div>
                          </div>
                          <div className="see-all-reviews" style={{display:"flex",justifyContent:"center"}}>
-                              <Link to="/Anukriti/other-story"><button className="all-review-btn">See All Reviews</button></Link>
+                              <Link to="/Anukriti/other-story/other"><button className="all-review-btn">See All Reviews</button></Link>
                          </div>
                   </div>
                   <div className="chapter-next">
