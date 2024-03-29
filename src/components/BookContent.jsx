@@ -21,6 +21,10 @@ import { MdOutlineLibraryBooks } from "react-icons/md";
 import { CgFormatLineHeight } from "react-icons/cg";
 import { MdOutlineDensitySmall } from "react-icons/md";
 import lineDec from '../assets/lineHigh.webp';
+import sideImg from '../assets/side-love.webp';
+import { IoPersonAdd } from "react-icons/io5";
+import { BsThreeDotsVertical } from "react-icons/bs";
+import { FaRegStar } from "react-icons/fa";
 function BookContent(){
   const [audio] = useState(new Audio(readingMusic));
   const [music,setMusic]=useState(false);
@@ -49,8 +53,118 @@ function BookContent(){
   const [backColor,setBackColor]=useState(true);
   const handleBackColor=(val)=>{setBackColor(val)};
 
+  const [side,setSide]=useState(false);
+  const handleSide=()=>{setSide(side=>!side)}; 
+
+  const [sideReview,setSideReview]=useState(true);
+  const handleSideEdit=(val)=>{setSideReview(val)};
+
+  const [starCont,setStarCont]=useState(0);
+  const handleStarCont=(val)=>{setStarCont(val)}; 
+
+  const [cancel,setCancel]=useState(false);
+  const handleCancel=(val)=>{
+    setSideReview(false);
+    setCancel(val)
+  };
+  const handleDelete=()=>{
+     setStarCont(0);
+     setCancel(false);
+     setSideReview(true);
+  }
+
+
     return(
            <div className="book-content" >
+              <div className="chapter-sidebar" style={{left:side ? '0px' :'-310px',paddingBottom:"10px"}}>
+                  <div className="side-top" style={{display:"flex",marginLeft:"10px"}}>
+
+                  <div className="side-to-left" style={{width:"130px",height:"170px"}}>
+                       <img src={sideImg} alt="" srcset="" style={{width:"100%",height:"100%"}}/>
+                   </div>
+
+                  <div style={{display:"flex",justifyContent:"flex-end",fontSize:"24px",paddingRight:"15px",width:"165px"}}><RxCross2 onClick={handleSide} style={{cursor:"pointer"}}/></div>
+                  </div>
+                  <div className="book-name" style={{color:"#2c3e50",fontSize:"18",fontWeight:"500",margin:"10px 13px",textAlign:"left",width:"45%",overflow:"hidden"}}> Love Story (1)</div>
+                  
+                  <div className="side-middle" style={{borderBottom:"1.5px solid #e9e9e9",marginBottom:"20px"}}>
+                  <div className="side-author-section" style={{display:"flex",height:"51px",marginLeft:"10px",marginBottom:"20px"}}>
+                     <img src={sideImg} alt="" srcset="" style={{width:"40px",height:"40px",borderRadius:"50%",margin:"auto 3px",}}/>
+                     <span style={{margin:"auto 8px",width:"115px",color:"black",fontSize:"15px",overflow:"hidden"}}> Anurag Singh patel  "Poet"</span>
+
+                     <button style={{color:"#036974",border:"1px solid #036974",float:"right",fontSize:"14px",padding:"0px 8px",borderRadius:"3px",height:"60%",margin:"auto 0px",marginLeft:"5px"}}><IoPersonAdd style={{marginRight:"6px"}}/>Follow</button>
+                  </div>
+                  </div>
+
+                  <div className="side-rating" style={{marginLeft:"10px"}}>
+                    <p style={{marginBottom:"2px",fontSize:"15px",}}>Your Rating 
+                    {
+                      (cancel && sideReview) &&
+                      <span style={{color:"brown",float:"right",fontSize:"13px",marginRight:"20px",fontWeight:"500",cursor:"pointer"}} onClick={()=>{handleSideEdit(false)}}>Cancel</span>
+                    }
+                    
+                    
+                    </p>
+
+                      <div className="side-star" style={{display:"flex",justifyContent:"space-between"}}>
+                       {
+                        (starCont===0 && 
+                        <div style={{marginLeft:"0px"}}>
+                          <FaRegStar style={{color:"#f5a623",fontSize:"26px",}} onClick={()=>{handleStarCont(1)}}/>
+                          <FaRegStar style={{color:"#f5a623",fontSize:"26px"}} onClick={()=>{handleStarCont(2)}}/>
+                          <FaRegStar style={{color:"#f5a623",fontSize:"26px"}} onClick={()=>{handleStarCont(3)}}/>
+                          <FaRegStar style={{color:"#f5a623",fontSize:"26px"}} onClick={()=>{handleStarCont(4)}}/>
+                          <FaRegStar style={{color:"#f5a623",fontSize:"26px"}} onClick={()=>{handleStarCont(5)}}/>
+                        </div>) || 
+                        (starCont!==0 && <StarCount rating={starCont} ratingColor='#f5a623' size='26px'/>)
+                       } 
+
+                      {
+                        (starCont!==0 && !cancel || !sideReview ) && <div class="dropdown" style={{marginRight:"10px"}}>
+                        <button class="btn " type="button" data-bs-toggle="dropdown" aria-expanded="false"><BsThreeDotsVertical /> </button>
+                      <ul class="dropdown-menu" style={{fontSize:"12px"}}>
+                         <li><a class="dropdown-item" href="#" style={{fontWeight:"500"}} onClick={()=>{handleSideEdit(true)}}>Edit Review</a></li>
+                         <li><a class="dropdown-item" href="#" style={{fontWeight:"500"}} onClick={handleDelete}>Delete Review</a></li>
+                      </ul>
+                    </div>
+                      }
+                    
+
+                     </div>
+                     {
+                       (sideReview && starCont!==0) && <> <textarea name="side-review" id="" cols="28" rows="3" placeholder="Write a Review" style={{padding:"8px", border:"1px solid #ced4da",color:"#495057",fontSize:"14px",fontWeight:"500",marginLeft:"6px",marginTop:"15px",marginBottom:"6px"}}></textarea>
+
+                       <div className="side-save" style={{display:"flex",justifyContent:"flex-end"}}>
+                        {
+                          !cancel && <button style={{border:"none",padding:"4px 9px",marginRight:"15px",backgroundColor:"#e2e3e4",color:"#212529",fontSize:"14px"}} onClick={()=>handleCancel(true)}>Cancel</button>
+                        }
+                         
+                         <button style={{border:"none",padding:"4px 9px",marginRight:"15px",backgroundColor:"#4e9862",color:"#fff"}}>save</button>
+                       </div> </>
+                     }
+                     
+                      <div className="side-share-edit" style={{width:"100%",height:"68px",display:"flex",marginTop:"10px"}}>
+                        <div className="side-share" style={{width:"40%",height:"100%"}}>
+                               <p style={{marginLeft:"8px",marginBottom:"11px"}}>Share</p>
+                               <span style={{backgroundColor:"green",padding:"6px 8px",borderRadius:"50%",width:"25px",height:"25px",marginLeft:"5px",marginRight:"5px"}}>
+                            <BsWhatsapp style={{color:"white"}}/> 
+                           </span>
+                            <span style={{backgroundColor:"blue",padding:"6px 8px",borderRadius:"50%",width:"25px",height:"25px",marginLeft:"5px"}}>
+                           <FaFacebookF style={{color:"white"}}/> 
+                          </span>  
+                        </div>
+
+                      </div>
+                  </div>
+                   <div className="side-read-next" style={{width:"100%",height:"100px",display:"flex",backgroundColor:"#e9e9e9",marginTop:"15px",marginLeft:"10px",padding:"10px",paddingRight:"0px"}}>
+                      <img src={sideImg} alt="" srcset="" style={{width:"65px",height:"80px"}}/>
+                      <div className="side-next-desc" style={{marginTop:"20px",marginLeft:"7px"}}>
+                         <p style={{fontSize:"10px",fontWeight:"500",marginBottom:"0px"}}>Read the next part of this book here</p>
+                         <span style={{overflow:"hidden",fontWeight:"500"}}>Love Story</span> <span>(2)</span>
+                      </div>
+                   </div>
+              </div> 
+
               {
                 (chSetting &&  <div className="chapter-setting" style={{width:"100%",height:"185px",position:"fixed",top:"180px",zIndex:"1999"}}>
                 <div className="chapter-setting-modal">
@@ -69,7 +183,7 @@ function BookContent(){
               }
                   <div className="book-content-header">
                       <div className="bch-left">
-                      <Link to="/Anukriti/aboutStory"><FaArrowLeft style={{marginRight:"15px"}}/></Link><span>Love Story (1)</span><TiArrowSortedDown style={{marginLeft:"7px"}}/>
+                      <Link to="/Anukriti/aboutStory"><FaArrowLeft style={{marginRight:"15px"}}/></Link><span>Love Story (1)</span><TiArrowSortedDown style={{marginLeft:"7px",cursor:"pointer"}} onClick={handleSide}/>
                       </div>
                       <div className="bch-right">
                         {
@@ -80,7 +194,7 @@ function BookContent(){
                         <PiDotsThreeOutlineVerticalFill style={{fontSize:"20px"}}/>
                       </div>
                   </div>
-                  <div className="book-content-body" style={{opacity:chSetting ? .4 : 1.0,color:backColor ? 'black' :'white',backgroundColor:backColor ? 'white' :'black'}}>
+                  <div className="book-content-body" style={{opacity:(chSetting || side) ? .3 : 1.0,color:backColor ? 'black' :'white',backgroundColor:backColor ? 'white' :'black'}}>
                          <div className="chapter-title">Love Story (1)</div>
                          <div className="chapter-body" style={{color:backColor ? '#2c3e50' :'white',fontSize:`${fontSiz}px`,lineHeight:lineHigh}}>
                          Title: The Forgotten Diary
