@@ -1,3 +1,32 @@
+.delete-modal{
+    width:275px;
+    background-color: #ebedef;
+    height:92%;
+    margin: auto;
+    border: 1.5px solid rgba(0, 0, 0, 0.125);
+    border-radius: 5px;
+}
+.delete-popup{
+    width: 100%;
+    height: 180px;
+    position: fixed;
+    top: 130px;
+    transition: all 0.3s;
+}
+.modal-logo{
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    color: #d0021b;
+}
+.modal-button{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+    gap: 10px;
+    padding-right: 30px;
+}
 
 .other-creation{
     background-color: rgb(241, 236, 236);
@@ -107,17 +136,55 @@ margin-top: 5px;
     color: #036974;
     border: 1px solid #036974;
     margin-top: 8px;
-    width: 47%;
+    width: 49%;
     padding: 10px 0px;
     font-size: 17px;
     font-weight: bold;
+}
+.category{
+    margin-left: 10px;
+    margin-top: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+.about-summary{
+    width: 94%;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    bottom: 0;
+    margin: 3px 0 5px;
+    height: 60px;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical !important;
+    word-break: break-word;
+    margin-left: 11px;
+    margin-top: 8px;
+    margin-bottom: 15px;
+}
+.category-gene{
+    background-color: #e2e5e7;
+    color: #474d51;
+    font-size: 13px;
+    padding: 5px 10px;
+    border-radius: 15px;
+    text-decoration: none;
+}
+.category-gene:hover{
+    text-decoration: underline;
 }
 .read-btn{
     background: #d0021b;
     border: 1px solid #d0021b;
     text-decoration: none;
     margin-top: 8px;
-    width: 50%;
+    width: 97%;
     padding: 11px 0px;
     font-size: 17px;
     font-weight: bold;

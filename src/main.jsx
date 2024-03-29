@@ -14,6 +14,8 @@ import Setting from './components/Setting.jsx';
 import OtherCreationInfo from './components/OtherCreationInfo.jsx';
 import Category from './components/Category.jsx';
 import BookContent from './components/BookContent.jsx';
+import { Provider } from 'react-redux';
+import AnukritiStore from './store/store.js';
 const router=createBrowserRouter([
   {
   path:"/",
@@ -27,7 +29,7 @@ const router=createBrowserRouter([
   {path:"/Anukriti/aboutStory",element:<AboutStory/>},
   {path:"/Anukriti/profile",element:<Profile/>},
   {path:"/Anukriti/setting",element:<Setting/>},
-  {path:"/Anukriti/other-story",element:<OtherCreationInfo/>},
+  {path:"/Anukriti/other-story/:id",element:<OtherCreationInfo/>},
   {path:"/Anukriti/genre",element:<Category/>},
   {path:"/Anukriti/book-content",element:<BookContent/>},
   ]
@@ -35,6 +37,8 @@ const router=createBrowserRouter([
   ]);
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <Provider store={AnukritiStore}>
     <RouterProvider router={router}/>
+    </Provider>
   </React.StrictMode>,
 )
