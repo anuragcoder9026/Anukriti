@@ -25,6 +25,8 @@ import sideImg from '../assets/side-love.webp';
 import { IoPersonAdd } from "react-icons/io5";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { FaRegStar } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
+import Review from "./Review";
 function BookContent(){
   const [audio] = useState(new Audio(readingMusic));
   const [music,setMusic]=useState(false);
@@ -73,7 +75,13 @@ function BookContent(){
      setSideReview(true);
   }
 
+  const [bottomStar,setButtomStar]=useState(0);
+  const handleButtomStar=(val)=>{
+    setBottom(true)
+    setButtomStar(val)};
 
+  const [bottom,setBottom]=useState(false);
+  const handleBottom=(val)=>{setBottom(val)};
     return(
            <div className="book-content" >
               <div className="chapter-sidebar" style={{left:side ? '0px' :'-310px',paddingBottom:"10px"}}>
@@ -194,7 +202,7 @@ function BookContent(){
                         <PiDotsThreeOutlineVerticalFill style={{fontSize:"20px"}}/>
                       </div>
                   </div>
-                  <div className="book-content-body" style={{opacity:(chSetting || side) ? .3 : 1.0,color:backColor ? 'black' :'white',backgroundColor:backColor ? 'white' :'black'}}>
+                  <div className="book-content-body" style={{opacity:(chSetting || side || bottom) ? .3 : 1.0,color:backColor ? 'black' :'white',backgroundColor:backColor ? 'white' :'black'}}>
                          <div className="chapter-title">Love Story (1)</div>
                          <div className="chapter-body" style={{color:backColor ? '#2c3e50' :'white',fontSize:`${fontSiz}px`,lineHeight:lineHigh}}>
                          Title: The Forgotten Diary
@@ -224,7 +232,14 @@ And so, as the dawn broke over the horizon and the birds began to sing, Lily eme
                          <div className="rate-share">
                             <div className="chapter-rate">
                                   <p style={{fontSize:"13px",marginBottom:"0px"}}>Rate " Love Story (1) "</p>
-                                  <StarCount rating={0} ratingColor='#059674' size='25px'/>
+                                  
+            <div style={{fontSize:"25px",display:"flex",justifyContent:"center",marginTop:"1px",     color:"#056974",cursor:"pointer"}}>
+  {bottomStar>=1?<FaStar onClick={()=>handleButtomStar(1)}/>:<FaRegStar onClick={()=>handleButtomStar(1)}/>}
+  {bottomStar>=2?<FaStar onClick={()=>handleButtomStar(2)}/>:<FaRegStar onClick={()=>handleButtomStar(2)}/>}
+  {bottomStar>=3?<FaStar onClick={()=>handleButtomStar(3)}/>:<FaRegStar onClick={()=>handleButtomStar(3)}/>}
+  {bottomStar>=4?<FaStar onClick={()=>handleButtomStar(4)}/>:<FaRegStar onClick={()=>handleButtomStar(4)}/>}
+  {bottomStar==5?<FaStar onClick={()=>handleButtomStar(5)}/>:<FaRegStar onClick={()=>handleButtomStar(5)}/>}   
+          </div>
                             </div>
                             <div className="chapter-share">
                             <p style={{fontSize:"13px",marginBottom:"4px",textAlign:"right"}}>share</p>
@@ -245,6 +260,10 @@ And so, as the dawn broke over the horizon and the birds began to sing, Lily eme
                   </div>
                   <div className="chapter-next">
                       <ReadNext/>
+                  </div>
+                  <div className="bottom-popup" style={{bottom:bottom?'0vh':'-710vh'}}>
+                    <RxCross2 className="bottom-cross" onClick={()=>handleBottom(false)}/> 
+                    <Review brate={bottomStar}/>
                   </div>
            </div>
     )

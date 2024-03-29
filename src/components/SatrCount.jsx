@@ -9,7 +9,7 @@ export default function StarCount({rating=0,ratingColor='black',size='14px'}){
         <span style={{marginLeft:"0px"}}>
             
             {componentArray1.map((index) => (
-                   <FaStar key={index} style={{fontSize:size,color:ratingColor,marginRight:"2px"}}/>
+                   <FaStar  style={{fontSize:size,color:ratingColor,marginRight:"2px"}}/>
             ))}
              {componentArray2.map((index) => (
                    <FaRegStar style={{fontSize:size,color:ratingColor}}/>
