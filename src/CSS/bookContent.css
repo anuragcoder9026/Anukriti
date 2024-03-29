@@ -147,13 +147,13 @@
 
 .bottom-popup{
     height: 60vh;
-    width: 98%;
+    width: 100%;
     max-width: 700px;
     position: fixed;
     margin-left: 0;
     bottom: 0vh;
     left: 50%;
-    transform: translateX(-50.5%);
+    transform: translateX(-50%);
     overflow: hidden;
     overflow-y: auto;
     text-align: left;
