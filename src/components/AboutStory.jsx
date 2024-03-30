@@ -3,8 +3,13 @@ import { GrDownload } from "react-icons/gr";
 import '../CSS/aboutStory.css';
 import cardImg from '../assets/card1.jpg';
 import { Link } from "react-router-dom";
+import authorImg from '../assets/user-photo.jpg'
+import { useState } from "react";
+import ChapterList from "./ChapterList";
 function AboutStory(){
-    return(
+    const[follow,setFollow]=useState(false);
+    const handleFollow=()=>{setFollow(!follow)}
+    return(<div style={{backgroundColor:"#f1ecec",paddingBottom:"60px"}}>
         <div class="about-story-row" style={{marginTop:"87px",backgroundColor:"#f1ecec",paddingTop:"25px",paddingBottom:"15px"}}>
         <div class="about-story-col col1">
             <img src={cardImg} alt="Loading.."  style={{marginTop:"10px",borderRadius:"10px"}}/>
@@ -39,6 +44,24 @@ function AboutStory(){
             </div>
         </div>
       </div>
+        <div className="about-author-row">
+               <div className="author-sec" style={{display:"flex",marginLeft:"10px"}}>
+                     <Link to="/Anukriti/profile/other" style={{marginTop:"15px"}}><img src={authorImg} alt="" srcset="" style={{width:"56px",height:"56px",borderRadius:"50%"}}/></Link>
+                    <div className="name-follow" style={{display:"flex",flexDirection:"column",justifyContent:"center",height:"100%",marginLeft:"14px"}}>
+                      <Link to="/Anukriti/profile/other" className="auth-name">Anurag Singh "Poet"</Link>
+                      <Link to="/Anukriti/profile/other" className="auth-follow">5K Follower</Link> 
+                    </div>
+               </div>
+               <div className="follow-btn" style={{display:"flex",alignItems:"center",marginRight:"25px",color:"#00626c",}}>
+                    <span onClick={handleFollow}>{follow ? 'Following' : 'Follow'}</span>
+               </div>
+        </div>
+         <p style={{fontWeight:"bold",width:"90%",margin:"0px auto",fontSize:"19px",marginTop:"25px",borderLeft:"3.5px solid brown",paddingLeft:"12px",height:"40px",paddingTop:"6px"}}>Chapters</p>
+
+         <div className="all-chater" style={{display:"flex",gap:"15px",width:"90%",margin:"20px auto",flexWrap:"wrap"}}>
+              <ChapterList title={'1. His Love Inside'}/><ChapterList title={'2. Chapter - 1'}/><ChapterList title={'3. Chapter - 2'}/><ChapterList title={'4. Chapter - 3'}/><ChapterList title={'5. Chapter - 4'}/><ChapterList title={'6. Chapter - 5'}/>
+         </div>
+        </div>
     )
 }
 

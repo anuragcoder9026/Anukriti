@@ -27,10 +27,10 @@ function UserRating({rate=0}){
         <div className="user-rating">
            <div className="user-img" style={{display:"flex",justifyContent:"center"}}><img src={authorImg} alt="" style={{width:"60px",height:"60px",borderRadius:"50%",border:"2px solid #cbc8c8"}}/></div>
            <div style={{display:"flex"}}>
-           <div style={{display:"flex",justifyContent:"flex-end",fontSize:"14px",marginTop:"9px",fontWeight:"500",width:"58%"}}>Your Rating 
+           <div style={{display:"flex",justifyContent:"center",fontSize:"14px",marginTop:"9px",fontWeight:"500",width:"85%",marginLeft:"8%"}}>Your Rating 
           </div>
           
-           <div className="dropdown" style={{display:"flex",justifyContent:"flex-end",width:"40%",marginRight:"20px"}}>
+           <div className="dropdown" style={{display:"flex",justifyContent:"flex-end",width:"5%",marginRight:"20px"}}>
   <button className="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false" style={{float:"right"}}>
   <BsThreeDotsVertical />
   </button>

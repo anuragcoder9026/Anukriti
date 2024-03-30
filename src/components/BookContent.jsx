@@ -107,9 +107,9 @@ function BookContent(){
                       
                       {
                         id==='other' && <>
-                               <button style={{color:"#036974",border:"1px solid #036974",float:"right",fontSize:"14px",padding:follow ? '0px 8px' :'0px 5px 0px 1px',borderRadius:"3px",height:"60%",margin:"auto 0px",marginLeft:"5px"}} onClick={handleFollow}>
+                               <button style={{color:"#036974",border:"1px solid #036974",float:"right",fontSize:"14px",padding:follow ? '0px 8px' :'0px 4px 0px 0px',borderRadius:"3px",height:"60%",margin:"auto 0px",marginLeft:"1px"}} onClick={handleFollow}>
                                 {
-                                  follow ? <IoPersonAdd style={{marginRight:"6px"}}/> :<TiTick style={{marginRight:"6px",marginLeft:"0px"}}/>
+                                  follow ? <IoPersonAdd style={{marginRight:"2px"}}/> :<TiTick style={{marginRight:"0px",marginLeft:"0px"}}/>
                                 }
                                 {follow ? 'Follow' :'Following'}</button>
                         </>

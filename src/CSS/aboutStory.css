@@ -1,4 +1,64 @@
+    .about-author-row{
+      width: 90%;
+      background-color: #fff;
+      height: 85px;
+      margin: 0px auto;
+      border-radius: 15px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .auth-name ,.auth-follow{
+      font-size: 16px;
+    }
+    .auth-follow{
+      font-weight: 500;
+    }
+    .follow-btn{
+      font-weight:600;
+      font-size:18px;
+    }
+    .one-chapter{
+      width:49%;
+    }
+    .chapter-list-reading {
+      color: #616161;
+    }
+    .chapter-list-reading span{
+      font-size: 15px;
+    }
+    .title{
+      font-size: 18px;
+    }
+    @media screen and (max-width: 432px) {
+      .title{
+        font-size: 14px;
+      }
+      .date{
+        font-size: 12px;
+      }
+    }
+    @media screen and (max-width: 1024px) {
+      .one-chapter{
+        width:100%;
+      }
+    }
 
+    @media screen and (max-width: 500px) {
+      .auth-name {
+        font-size: 12px;
+        font-weight: 500; 
+      }
+      .auth-follow{
+        font-size: 13px;
+      }
+      .auth-follow{
+        font-weight: 600;
+      }
+      .follow-btn{
+        font-weight:700;
+        font-size:14px;
+      }
+    }
     a{
       text-decoration: none;
       color: black;
