@@ -7,7 +7,7 @@ function AboutStory(){
     return(
         <div class="about-story-row" style={{marginTop:"87px",backgroundColor:"#f1ecec",paddingTop:"25px",paddingBottom:"15px"}}>
         <div class="about-story-col col1">
-            <img src={cardImg} alt="" srcset="" style={{marginTop:"10px",borderRadius:"10px"}}/>
+            <img src={cardImg} alt="Loading.."  style={{marginTop:"10px",borderRadius:"10px"}}/>
         </div>
         <div class="about-story-col col2">
             <h1 style={{fontWeight:"600"}}>Endless Love</h1>
@@ -33,7 +33,7 @@ function AboutStory(){
                   </div>
             </div>
             <div class="btn-story" >
-               <Link  to="/Anukriti/book-content" class="btn-story-read"><button type="button" class="btn btn-danger">Read Now</button></Link>
+               <Link  to="/Anukriti/book-content/other" class="btn-story-read"><button type="button" class="btn btn-danger">Read Now</button></Link>
                <div class="btn-story-library"><MdOutlineLibraryAdd className="fs-2"style={{marginTop:"8px"}}/></div>
                <div class="btn-story-download"><GrDownload className="fs-3" style={{marginTop:"6px"}}/></div>
             </div>

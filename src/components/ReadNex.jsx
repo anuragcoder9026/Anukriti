@@ -8,7 +8,7 @@ function ReadNext(){
     return(
         <div className="read-next" style={{padding:"0px",marginTop:"35px"}}>
         <div className="read-next-upper" style={{}}>
-            <img src={CreateImg} alt="" srcset="" className="read-next-upper-left" />
+            <img src={CreateImg} alt="" className="read-next-upper-left" />
             <div className="read-next-upper-right">
                 <p style={{fontSize:"12px",fontWeight:"500",marginLeft:"8px",marginBottom:"2px"}}>Read the Next part here...</p>
                 <p style={{fontWeight:"450",marginLeft:"8px",marginBottom:"4px"}}>Starting Falling For you</p>

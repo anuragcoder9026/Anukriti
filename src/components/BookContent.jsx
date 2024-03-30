@@ -10,7 +10,7 @@ import { MdShare } from "react-icons/md";
 import '../CSS/bookContent.css';
 import { useState } from "react";
 import StarCount from "./SatrCount";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import ReadNext from "./ReadNex";
 import readingMusic from '../assets/reading-music.mp3';
 import { RxCross2 } from "react-icons/rx";
@@ -27,7 +27,9 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import { FaRegStar } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
 import Review from "./Review";
+import { TiTick } from "react-icons/ti";
 function BookContent(){
+  const {id}=useParams();
   const [audio] = useState(new Audio(readingMusic));
   const [music,setMusic]=useState(false);
   const handlePlay = () => {
@@ -82,13 +84,16 @@ function BookContent(){
 
   const [bottom,setBottom]=useState(false);
   const handleBottom=(val)=>{setBottom(val)};
+
+  const[follow,setFollow]=useState(true);
+  const handleFollow=()=>{setFollow(!follow)}
     return(
            <div className="book-content" >
               <div className="chapter-sidebar" style={{left:side ? '0px' :'-310px',paddingBottom:"10px"}}>
                   <div className="side-top" style={{display:"flex",marginLeft:"10px"}}>
 
                   <div className="side-to-left" style={{width:"130px",height:"170px"}}>
-                       <img src={sideImg} alt="" srcset="" style={{width:"100%",height:"100%"}}/>
+                       <img src={sideImg} alt="" style={{width:"100%",height:"100%"}}/>
                    </div>
 
                   <div style={{display:"flex",justifyContent:"flex-end",fontSize:"24px",paddingRight:"15px",width:"165px"}}><RxCross2 onClick={handleSide} style={{cursor:"pointer"}}/></div>
@@ -97,24 +102,37 @@ function BookContent(){
                   
                   <div className="side-middle" style={{borderBottom:"1.5px solid #e9e9e9",marginBottom:"20px"}}>
                   <div className="side-author-section" style={{display:"flex",height:"51px",marginLeft:"10px",marginBottom:"20px"}}>
-                     <img src={sideImg} alt="" srcset="" style={{width:"40px",height:"40px",borderRadius:"50%",margin:"auto 3px",}}/>
+                     <img src={sideImg} alt=""  style={{width:"40px",height:"40px",borderRadius:"50%",margin:"auto 3px",}}/>
                      <span style={{margin:"auto 8px",width:"115px",color:"black",fontSize:"15px",overflow:"hidden"}}> Anurag Singh patel  "Poet"</span>
-
-                     <button style={{color:"#036974",border:"1px solid #036974",float:"right",fontSize:"14px",padding:"0px 8px",borderRadius:"3px",height:"60%",margin:"auto 0px",marginLeft:"5px"}}><IoPersonAdd style={{marginRight:"6px"}}/>Follow</button>
+                      
+                      {
+                        id==='other' && <>
+                               <button style={{color:"#036974",border:"1px solid #036974",float:"right",fontSize:"14px",padding:follow ? '0px 8px' :'0px 5px 0px 1px',borderRadius:"3px",height:"60%",margin:"auto 0px",marginLeft:"5px"}} onClick={handleFollow}>
+                                {
+                                  follow ? <IoPersonAdd style={{marginRight:"6px"}}/> :<TiTick style={{marginRight:"6px",marginLeft:"0px"}}/>
+                                }
+                                {follow ? 'Follow' :'Following'}</button>
+                        </>
+                      }
+                     
                   </div>
                   </div>
 
                   <div className="side-rating" style={{marginLeft:"10px"}}>
-                    <p style={{marginBottom:"2px",fontSize:"15px",}}>Your Rating 
                     {
-                      (cancel && sideReview) &&
-                      <span style={{color:"brown",float:"right",fontSize:"13px",marginRight:"20px",fontWeight:"500",cursor:"pointer"}} onClick={()=>{handleSideEdit(false)}}>Cancel</span>
+                      id==='other' && <p style={{marginBottom:"2px",fontSize:"15px",}}>Your Rating 
+                      {
+                        (cancel && sideReview) &&
+                        <span style={{color:"brown",float:"right",fontSize:"13px",marginRight:"20px",fontWeight:"500",cursor:"pointer"}} onClick={()=>{handleSideEdit(false)}}>Cancel</span>
+                      }
+                      
+                      
+                      </p>
                     }
-                    
-                    
-                    </p>
-
-                      <div className="side-star" style={{display:"flex",justifyContent:"space-between"}}>
+                      
+                      {
+                        id=='other' && <>
+                            <div className="side-star" style={{display:"flex",justifyContent:"space-between"}}>
                        {
                         (starCont===0 && 
                         <div style={{marginLeft:"0px"}}>
@@ -150,6 +168,9 @@ function BookContent(){
                          <button style={{border:"none",padding:"4px 9px",marginRight:"15px",backgroundColor:"#4e9862",color:"#fff"}}>save</button>
                        </div> </>
                      }
+                        </>
+                      }
+                      
                      
                       <div className="side-share-edit" style={{width:"100%",height:"68px",display:"flex",marginTop:"10px"}}>
                         <div className="side-share" style={{width:"40%",height:"100%"}}>
@@ -165,7 +186,7 @@ function BookContent(){
                       </div>
                   </div>
                    <div className="side-read-next" style={{width:"100%",height:"100px",display:"flex",backgroundColor:"#e9e9e9",marginTop:"15px",marginLeft:"10px",padding:"10px",paddingRight:"0px"}}>
-                      <img src={sideImg} alt="" srcset="" style={{width:"65px",height:"80px"}}/>
+                      <img src={sideImg} alt="" style={{width:"65px",height:"80px"}}/>
                       <div className="side-next-desc" style={{marginTop:"20px",marginLeft:"7px"}}>
                          <p style={{fontSize:"10px",fontWeight:"500",marginBottom:"0px"}}>Read the next part of this book here</p>
                          <span style={{overflow:"hidden",fontWeight:"500"}}>Love Story</span> <span>(2)</span>
@@ -230,19 +251,22 @@ With a newfound sense of purpose, Lily vowed to honor Emily's legacy by sharing 
 And so, as the dawn broke over the horizon and the birds began to sing, Lily emerged from the shadows of the past, her spirit alight with the flame of discovery, ready to embark on a new chapter in the never-ending story of her own life.
                          </div>
                          <div className="rate-share">
-                            <div className="chapter-rate">
-                                  <p style={{fontSize:"13px",marginBottom:"0px"}}>Rate " Love Story (1) "</p>
-                                  
-            <div style={{fontSize:"25px",display:"flex",justifyContent:"center",marginTop:"1px",     color:"#056974",cursor:"pointer"}}>
-  {bottomStar>=1?<FaStar onClick={()=>handleButtomStar(1)}/>:<FaRegStar onClick={()=>handleButtomStar(1)}/>}
-  {bottomStar>=2?<FaStar onClick={()=>handleButtomStar(2)}/>:<FaRegStar onClick={()=>handleButtomStar(2)}/>}
-  {bottomStar>=3?<FaStar onClick={()=>handleButtomStar(3)}/>:<FaRegStar onClick={()=>handleButtomStar(3)}/>}
-  {bottomStar>=4?<FaStar onClick={()=>handleButtomStar(4)}/>:<FaRegStar onClick={()=>handleButtomStar(4)}/>}
-  {bottomStar==5?<FaStar onClick={()=>handleButtomStar(5)}/>:<FaRegStar onClick={()=>handleButtomStar(5)}/>}   
-          </div>
-                            </div>
+                         {
+                  id==='other' &&  <div className="chapter-rate">
+                  <p style={{fontSize:"13px",marginBottom:"0px"}}>Rate " Love Story (1) "</p>
+                        
+<div style={{fontSize:"25px",display:"flex",justifyContent:"center",marginTop:"1px",     color:"#056974",cursor:"pointer"}}>
+{bottomStar>=1?<FaStar onClick={()=>handleButtomStar(1)}/>:<FaRegStar onClick={()=>handleButtomStar(1)}/>}
+{bottomStar>=2?<FaStar onClick={()=>handleButtomStar(2)}/>:<FaRegStar onClick={()=>handleButtomStar(2)}/>}
+{bottomStar>=3?<FaStar onClick={()=>handleButtomStar(3)}/>:<FaRegStar onClick={()=>handleButtomStar(3)}/>}
+{bottomStar>=4?<FaStar onClick={()=>handleButtomStar(4)}/>:<FaRegStar onClick={()=>handleButtomStar(4)}/>}
+{bottomStar==5?<FaStar onClick={()=>handleButtomStar(5)}/>:<FaRegStar onClick={()=>handleButtomStar(5)}/>}   
+</div>
+            </div>
+                }  
+                           
                             <div className="chapter-share">
-                            <p style={{fontSize:"13px",marginBottom:"4px",textAlign:"right"}}>share</p>
+                            <p style={{fontSize:"13px",marginBottom:"4px",textAlign:"left",paddingLeft:"8px"}}>share</p>
                             <span style={{backgroundColor:"green",padding:"6px 8px",borderRadius:"50%",width:"25px",height:"25px",marginLeft:"5px",marginRight:"5px"}}>
                             <BsWhatsapp style={{color:"white"}}/> 
                            </span>
@@ -255,7 +279,7 @@ And so, as the dawn broke over the horizon and the birds began to sing, Lily eme
                             </div>
                          </div>
                          <div className="see-all-reviews" style={{display:"flex",justifyContent:"center"}}>
-                              <Link to="/Anukriti/other-story/other"><button className="all-review-btn">See All Reviews</button></Link>
+                              <Link to={`/Anukriti/other-story/${id}`}><button className="all-review-btn">See All Reviews</button></Link>
                          </div>
                   </div>
                   <div className="chapter-next">
@@ -263,7 +287,7 @@ And so, as the dawn broke over the horizon and the birds began to sing, Lily eme
                   </div>
                   <div className="bottom-popup" style={{bottom:bottom?'0vh':'-710vh'}}>
                     <RxCross2 className="bottom-cross" onClick={()=>handleBottom(false)}/> 
-                    <Review brate={bottomStar}/>
+                    <Review brate={bottomStar} story='other'/>
                   </div>
            </div>
     )

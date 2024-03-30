@@ -8,10 +8,10 @@ export default function StarCount({rating=0,ratingColor='black',size='14px'}){
     return(
         <span style={{marginLeft:"0px"}}>
             
-            {componentArray1.map((index) => (
-                   <FaStar  style={{fontSize:size,color:ratingColor,marginRight:"2px"}}/>
+            {componentArray1.map(() => (
+                   <FaStar style={{fontSize:size,color:ratingColor,marginRight:"2px"}}/>
             ))}
-             {componentArray2.map((index) => (
+             {componentArray2.map(() => (
                    <FaRegStar style={{fontSize:size,color:ratingColor}}/>
             ))}
        </span>

@@ -8,9 +8,9 @@ function Comments(){
     return(
            <div className="single-comments" style={{display:"flex",marginBottom:"10px"}}>
             <Link to="#" className="comentor-img">
-               <img src={commentorImg} alt="" srcset="" style={{width:"42px",height:"42px",borderRadius:"50%",marginLeft:"15px",marginTop:"7px"}}/>
+               <img src={commentorImg} alt=""  style={{width:"42px",height:"42px",borderRadius:"50%",marginLeft:"15px",marginTop:"7px"}}/>
             </Link>
-            <div class="comment-content">
+            <div className="comment-content">
                   <div style={{marginBottom:"-8px"}} className="commentor-name" ><p style={{marginBottom:"-8px"}}><Link to="#" style={{color:"black",fontWeight:"bold",fontSize:"12px"}}>Shubham Patel</Link></p>
                   <StarCount rating={5} ratingColor='#aeadae'></StarCount> <span style={{fontSize:"12px",color:"#999",marginLeft:"4px"}}>24 August 2024</span>
                   </div>

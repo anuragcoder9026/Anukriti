@@ -31,7 +31,7 @@ const router=createBrowserRouter([
   {path:"/Anukriti/setting",element:<Setting/>},
   {path:"/Anukriti/other-story/:id",element:<OtherCreationInfo/>},
   {path:"/Anukriti/genre",element:<Category/>},
-  {path:"/Anukriti/book-content",element:<BookContent/>},
+  {path:"/Anukriti/book-content/:id",element:<BookContent/>},
   ]
   }
   ]);

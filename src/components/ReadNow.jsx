@@ -53,7 +53,7 @@ function ReadNow({story}){
                         story==='other' && <button className="library-btn"> < MdOutlineLibraryAdd style={{fontSize:"25px",marginRight:"5px"}}/>Library</button>
                     }
                     
-                    <Link to="/Anukriti/book-content" style={{width:"50%",}}>
+                    <Link to={story==='self' ? '/Anukriti/book-content/self' :'/Anukriti/book-content/other'} style={{width:"50%",}}>
                         <button className="read-btn"> Read now</button>
                     </Link>
 

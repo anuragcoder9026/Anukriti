@@ -25,18 +25,18 @@ function UserRating({rate=0}){
     }
     return(
         <div className="user-rating">
-           <div className="user-img" style={{display:"flex",justifyContent:"center"}}><img src={authorImg} alt="" srcset="" style={{width:"60px",height:"60px",borderRadius:"50%",border:"2px solid #cbc8c8"}}/></div>
+           <div className="user-img" style={{display:"flex",justifyContent:"center"}}><img src={authorImg} alt="" style={{width:"60px",height:"60px",borderRadius:"50%",border:"2px solid #cbc8c8"}}/></div>
            <div style={{display:"flex"}}>
            <div style={{display:"flex",justifyContent:"flex-end",fontSize:"14px",marginTop:"9px",fontWeight:"500",width:"58%"}}>Your Rating 
           </div>
           
-           <div class="dropdown" style={{display:"flex",justifyContent:"flex-end",width:"40%",marginRight:"20px"}}>
-  <button class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false" style={{float:"right"}}>
+           <div className="dropdown" style={{display:"flex",justifyContent:"flex-end",width:"40%",marginRight:"20px"}}>
+  <button className="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false" style={{float:"right"}}>
   <BsThreeDotsVertical />
   </button>
-  <ul class="dropdown-menu" style={{fontSize:"12px"}}>
-    <li><a class="dropdown-item" href="#" style={{fontWeight:"500"}} onClick={handleEdit}>Edit Review</a></li>
-    <li><a class="dropdown-item" href="#" style={{fontWeight:"500"}} onClick={handleDelete}>Delete Review</a></li>
+  <ul className="dropdown-menu" style={{fontSize:"12px"}}>
+    <li><a className="dropdown-item" href="#" style={{fontWeight:"500"}} onClick={handleEdit}>Edit Review</a></li>
+    <li><a className="dropdown-item" href="#" style={{fontWeight:"500"}} onClick={handleDelete}>Delete Review</a></li>
   </ul>
 </div>
           
@@ -52,7 +52,7 @@ function UserRating({rate=0}){
          {
             (writeReview===true &&  
             <><div className="write-review-section" style={{display:"flex",justifyContent:"center",marginTop:"13px"}}>
-            <textarea class="form-control" placeholder="Write Review" type="text" id="validationDefault05" 
+            <textarea className="form-control" placeholder="Write Review" type="text" id="validationDefault05" 
             style={{width:"92%",height:"80px"}}
             > </textarea>
             </div>
