@@ -40,7 +40,7 @@ function Write() {
                 onChange={newContent => setContent(newContent)}
             />
             <YourComponent htmlContent={content}/>
-            <ToastContainer />
+            <ToastContainer style={{marginBottom:"20px"}}/>
         </div>
 
     );

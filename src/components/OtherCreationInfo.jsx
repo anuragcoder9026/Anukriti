@@ -40,7 +40,7 @@ function OtherCreationInfo(){
                        <div className="modal-button">
                            <button style={{border:"none",backgroundColor:"#fff",padding:"5px 8px",fontSize:"14px",fontWeight:"500"}} onClick={()=>handleDeleteModal(false)}>Cancel</button>
                            <button style={{border:"none",backgroundColor:"#d0021b",color:"#fff",padding:"5px 8px",fontSize:"14px",fontWeight:"500"}} onClick={deleteNotify}>Delete</button>
-                           <ToastContainer />
+                           <ToastContainer style={{marginBottom:"15px"}}/>
                        </div> 
                 </div>
                 </div>
