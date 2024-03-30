@@ -10,6 +10,10 @@ import { useEffect, useState } from 'react';
 import { useSelector } from "react-redux";
 import {useDispatch} from 'react-redux';
 import { deleteAction } from "../store/deleteSlice";
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function OtherCreationInfo(){
      const {id} =useParams();
      const dispatch=useDispatch();
@@ -20,6 +24,12 @@ function OtherCreationInfo(){
     useEffect(()=>{
         dispatch(deleteAction.handlePopup(false));
     },[])
+
+    const deleteNotify=()=>{ toast.success("Deleted Succesfully !",{
+        position:"bottom-center",
+        theme:"dark"
+    })}
+    
     return(
          <div className="other-creation" >
             {
@@ -29,7 +39,8 @@ function OtherCreationInfo(){
                        <div style={{width:"80%",textAlign:"center",marginLeft:"27px",marginTop:"10px",fontWeight:"600"}}>Are you sure to Delete this Content ?</div>
                        <div className="modal-button">
                            <button style={{border:"none",backgroundColor:"#fff",padding:"5px 8px",fontSize:"14px",fontWeight:"500"}} onClick={()=>handleDeleteModal(false)}>Cancel</button>
-                           <button style={{border:"none",backgroundColor:"#d0021b",color:"#fff",padding:"5px 8px",fontSize:"14px",fontWeight:"500"}}>Delete</button>
+                           <button style={{border:"none",backgroundColor:"#d0021b",color:"#fff",padding:"5px 8px",fontSize:"14px",fontWeight:"500"}} onClick={deleteNotify}>Delete</button>
+                           <ToastContainer />
                        </div> 
                 </div>
                 </div>

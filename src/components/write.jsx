@@ -3,10 +3,23 @@ import { useRef, useState } from 'react';
 import '../CSS/write.css';
 import { RiDeleteBinLine } from "react-icons/ri";
 import YourComponent from './YourComponent';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function Write() {
     const editor = useRef(null);
     const [content, setContent] = useState('');
     let date=new Date().toLocaleDateString();
+
+    const publishNotify=()=>{ toast.success("Published Succesfully !",{
+        position:"bottom-center",
+        theme:"dark"
+    })}
+
+    const saveNotify=()=>{ toast.info("Saved Succesfully !",{
+        position:"bottom-center",
+        theme:"dark"
+    })}
     return (
         <div className="text-editor" style={{marginTop: "120px"}}>
             <div class="write-head" style={{backgroundColor:"white"}}>
@@ -14,8 +27,8 @@ function Write() {
       
   <div class="col-sm-5 date" style={{fontWeight:"bold",textAlign:"center",paddingLeft:"10px"}}>New Draft- {date}</div>
   <div class="col-sm-7 text-end handle-text">
-  <button type="button" class="btn btn-danger "style={{marginLeft:"5px"}}>PUBLISH</button>
-        <button type="button" class="btn btn-primary" style={{marginLeft:"5px"}}>Save</button>
+  <button type="button" class="btn btn-danger "style={{marginLeft:"5px"}} onClick={publishNotify}>PUBLISH</button>
+        <button type="button" class="btn btn-primary" style={{marginLeft:"5px"}} onClick={saveNotify}>Save</button>
         <span> <RiDeleteBinLine style={{marginLeft:"6px",fontSize:"40px",cursor:"pointer"}}/></span>
 </div>
     </header>
@@ -27,6 +40,7 @@ function Write() {
                 onChange={newContent => setContent(newContent)}
             />
             <YourComponent htmlContent={content}/>
+            <ToastContainer />
         </div>
 
     );
