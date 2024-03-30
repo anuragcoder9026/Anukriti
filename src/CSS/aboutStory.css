@@ -7,11 +7,18 @@
       display: flex;
       justify-content: space-between;
     }
-    .auth-name ,.auth-follow{
+    @media screen and (max-width: 350px){
+      .about-author-row{
+        height: 120px;
+      }
+    }
+    .auth-name {
       font-size: 16px;
+      overflow: hidden;
     }
     .auth-follow{
       font-weight: 500;
+      font-size: 16px;
     }
     .follow-btn{
       font-weight:600;
@@ -28,6 +35,21 @@
     }
     .title{
       font-size: 18px;
+    }
+    .toast-follow{
+      width: 500px;
+    }
+    @media screen and (max-width: 527px) {
+      .toast-follow{
+        width: 350px;
+        font-size: 12px;
+      }
+    }
+    @media screen and (max-width: 350px) {
+      .toast-follow{
+        width: 280px;
+        font-size: 10px;
+      }
     }
     @media screen and (max-width: 432px) {
       .title{

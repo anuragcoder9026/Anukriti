@@ -6,9 +6,25 @@ import { Link } from "react-router-dom";
 import authorImg from '../assets/user-photo.jpg'
 import { useState } from "react";
 import ChapterList from "./ChapterList";
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function AboutStory(){
     const[follow,setFollow]=useState(false);
-    const handleFollow=()=>{setFollow(!follow)}
+    const handleFollow=()=>{
+      setFollow(!follow)
+       if(!follow){toast.success("You Are Following Anurag Singh",{
+        position:"bottom-center",
+        theme:"dark"})}
+        else{
+          toast.warn("You have Unfollowed Anurag Singh",{
+            position:"bottom-center",
+            theme:"dark"})
+        }
+    }
+
+
     return(<div style={{backgroundColor:"#f1ecec",paddingBottom:"60px"}}>
         <div class="about-story-row" style={{marginTop:"87px",backgroundColor:"#f1ecec",paddingTop:"25px",paddingBottom:"15px"}}>
         <div class="about-story-col col1">
@@ -53,7 +69,7 @@ function AboutStory(){
                     </div>
                </div>
                <div className="follow-btn" style={{display:"flex",alignItems:"center",marginRight:"25px",color:"#00626c",}}>
-                    <span onClick={handleFollow}>{follow ? 'Following' : 'Follow'}</span>
+                    <span onClick={handleFollow} style={{cursor:"pointer"}}>{follow ? 'Following' : 'Follow'}</span>
                </div>
         </div>
          <p style={{fontWeight:"bold",width:"90%",margin:"0px auto",fontSize:"19px",marginTop:"25px",borderLeft:"3.5px solid brown",paddingLeft:"12px",height:"40px",paddingTop:"6px"}}>Chapters</p>
@@ -61,6 +77,7 @@ function AboutStory(){
          <div className="all-chater" style={{display:"flex",gap:"15px",width:"90%",margin:"20px auto",flexWrap:"wrap"}}>
               <ChapterList title={'1. His Love Inside'}/><ChapterList title={'2. Chapter - 1'}/><ChapterList title={'3. Chapter - 2'}/><ChapterList title={'4. Chapter - 3'}/><ChapterList title={'5. Chapter - 4'}/><ChapterList title={'6. Chapter - 5'}/>
          </div>
+         <ToastContainer  className="toast-follow" style={{marginBottom:"15px"}}/>
         </div>
     )
 }
