@@ -6,15 +6,12 @@ import YourComponent from './YourComponent';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Link } from 'react-router-dom';
 function Write() {
     const editor = useRef(null);
     const [content, setContent] = useState('');
     let date=new Date().toLocaleDateString();
 
-    const publishNotify=()=>{ toast.success("Published Succesfully !",{
-        position:"bottom-center",
-        theme:"dark"
-    })}
 
     const saveNotify=()=>{ toast.info("Saved Succesfully !",{
         position:"bottom-center",
@@ -27,7 +24,9 @@ function Write() {
       
   <div class="col-sm-5 date" style={{fontWeight:"bold",textAlign:"center",paddingLeft:"10px"}}>New Draft- {date}</div>
   <div class="col-sm-7 text-end handle-text">
-  <button type="button" class="btn btn-danger "style={{marginLeft:"5px"}} onClick={publishNotify}>PUBLISH</button>
+ <Link to="/Anukriti/publish" style={{textDecoration:"none"}}>
+  <button type="button" class="btn btn-danger "style={{marginLeft:"5px"}}>PUBLISH</button>
+  </Link>
         <button type="button" class="btn btn-primary" style={{marginLeft:"5px"}} onClick={saveNotify}>Save</button>
         <span> <RiDeleteBinLine style={{marginLeft:"6px",fontSize:"40px",cursor:"pointer"}}/></span>
 </div>

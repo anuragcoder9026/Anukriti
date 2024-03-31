@@ -1,0 +1,118 @@
+.add-cover-img{
+    width: 190px;
+    height: 300px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.title-summary{
+    width: 84%;
+}
+input:focus {
+    outline: none;
+}
+textarea:focus{
+    outline: none;
+}
+.publish{
+    margin-top: 60px;
+    background-color: #f1ecec;
+    padding-top: 50px;
+    padding-bottom: 40px;
+}
+.go-back{
+    background-color: #f2f1f1;
+}
+
+.img-title-summary{
+    display: flex;
+    width: 75%;
+    margin: 40px auto;
+    gap: 60px;
+    color: #666666;
+}
+.category-list{
+    width: 75%;
+    margin: 10px auto;
+    position: relative;
+    z-index: 1000;
+    order: 5;
+}
+.go-back{
+    width: 75%;
+}
+.own-category{
+    width: 75%;
+    margin: 15px auto;
+}
+.own-category input{
+    width: 280px;
+}
+.series-dropdown-btn{
+    width: 300px;
+}
+
+.series-dropdown{
+    width: 300px;
+    height: 250px;
+    background-color: #fff;
+    position:absolute;
+    z-index: 2000;
+    order: 2;
+    box-shadow:  .8rem .8rem 1rem rgba(0,0,0,.15)!important;
+    padding: 8px 15px;
+}
+@media screen and (max-width:600px) {
+    .img-title-summary{
+        flex-direction: column-reverse;
+        width: 90%;
+    }
+    .title-summary{
+        width: 100%;
+    }
+}
+@media screen and (max-width:360px) {
+    .own-category input{
+        width: 250px;
+    }
+}
+@media screen and (max-width:334px) {
+    .own-category input{
+        width: 205px;
+    }
+    .series-dropdown-btn{
+        width: 100%;
+    }
+    .series-dropdown{
+        width: 90%;
+    }   
+}
+@media screen and (max-width:1024px) {
+    .img-title-summary{
+          width: 90%;
+    }
+    .go-back{
+        width: 90%;
+    }
+    .category-list{
+        width: 90%;
+       
+    }
+    .own-category{
+        width: 90%;
+    }
+}
+
+
+
+.genreBtn{
+    border:1px solid rgba(0,0,0,0.125);
+    border-radius:15px;
+    background-color:#fff;
+    margin:0px 8px 8px 0px;
+    padding:4px 10px;
+    color:#666666;
+    font-size:15px;
+    cursor:pointer;
+}

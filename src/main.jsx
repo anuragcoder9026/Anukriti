@@ -16,6 +16,7 @@ import Category from './components/Category.jsx';
 import BookContent from './components/BookContent.jsx';
 import { Provider } from 'react-redux';
 import AnukritiStore from './store/store.js';
+import Publish from './components/Publish.jsx';
 const router=createBrowserRouter([
   {
   path:"/",
@@ -32,6 +33,7 @@ const router=createBrowserRouter([
   {path:"/Anukriti/other-story/:id",element:<OtherCreationInfo/>},
   {path:"/Anukriti/genre",element:<Category/>},
   {path:"/Anukriti/book-content/:id",element:<BookContent/>},
+  {path:"/Anukriti/publish",element:<Publish/>},
   ]
   }
   ]);
