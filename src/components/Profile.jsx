@@ -2,7 +2,7 @@
 import '../CSS/profile.css';
 import userImg from "../assets/user-photo.jpg";
 import { ImPencil } from "react-icons/im";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
     import Button from 'react-bootstrap/Button';
     import Modal from 'react-bootstrap/Modal';
 import Library from './Library';
@@ -14,8 +14,9 @@ import { Link, useParams } from 'react-router-dom';
 import folloSound from '../assets/follow-sound.mp3';
 import { TiTick } from "react-icons/ti";
 import { IoPersonAdd } from "react-icons/io5";
-
+import {useSelector} from 'react-redux';
 function Profile(){
+  const contentList=useSelector(store=>store.contentArray);  
    const {id}=useParams();
     const [show, setShow] = useState(false);
     const handleClose = () =>setShow(false);
@@ -36,7 +37,7 @@ function Profile(){
     function Example() {
       return (
         <>
-          <Modal show={show} onHide={handleClose}>
+          <Modal show={show} onHide={handleClose} style={{marginTop:"100px"}}>
             <Modal.Header closeButton>
               <Modal.Title  style={{fontWeight:"bold"}}>About </Modal.Title>
             </Modal.Header>
@@ -112,8 +113,14 @@ function Profile(){
         </div>
         <div className="library" style={{display:"flex",marginTop:"15px",marginLeft:"5%",gap:"4px",flexWrap:"wrap",height:"100%"}}>
         {myArray.map(() => (
-          (selectedSpan==='library' && <Library/>) || (selectedSpan==='content' && <Content/>) || (selectedSpan==='follower' && <Follower/>)||(selectedSpan==='following' && <Follower/>)
+          (selectedSpan==='library' && <Library/>) || (selectedSpan==='follower' && <Follower/>)||(selectedSpan==='following' && <Follower/>)
         ))}
+
+        {
+          contentList.map((item,index)=>(
+            (selectedSpan==='content' && <Content id={index}/>) 
+          ))
+        }
         </div>
         </div>
     )

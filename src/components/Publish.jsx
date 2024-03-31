@@ -4,7 +4,7 @@ import { ImCross } from "react-icons/im";
 import coverImg from '../assets/publish.jpg'
 import { FaCamera } from "react-icons/fa";
 import { IoMdArrowDropdown } from "react-icons/io";
-import {useState } from 'react';
+import {useRef, useState } from 'react';
 import { IoMdSend } from "react-icons/io";
 import { Link } from 'react-router-dom';
 
@@ -12,6 +12,7 @@ import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 function Publish (){
+
      let genreList=[['action & adventure',false],['biography',false],['children',false],['creative',false], ['non-fiction',false],['crime',false],['detective',false],['drama',false],['fantasy',false],['historical',false],['horror',false],['humour',false],['life',false],['motivational',false],['murder mystery',false],
      ['mythology',false],['religion',false],['romance',false],['satire',false],['science fiction',false],['short story',false],['social',false],['thriller',false],['tragedy',false],['travel',false],['women',false],['young adult',false]
     ];
@@ -80,12 +81,12 @@ function Publish (){
                  </div>
                  <div className="title-summary">
                         <p style={{marginBottom:"8px"}}>Add Title</p>
-                        <input type="text" name="title" id="" placeholder="Enter Title here" style={{border:"none",width:"100%",padding:"10px",borderRadius:"4px",marginBottom:"35px",fontSize:"14px"}}/>
+                        <input type="text" name="title" id=""  placeholder="Enter Title here" style={{border:"none",width:"100%",padding:"10px",borderRadius:"4px",marginBottom:"35px",fontSize:"14px"}} />
                         <p style={{marginBottom:"8px"}}>Add Summary</p>
                         <textarea type="text" name="title" id="" placeholder="Enter Summary here" style={{border:"none",width:"100%",padding:"10px",borderRadius:"4px",height:"150px",maxHeight:"150px",minHeight:"150px",fontSize:"14px"}}/>
                         <p style={{marginBottom:"2px",marginTop:"15px"}}>Series</p>
-                        <div class="series-dropdown-btn" style={{display:"flex",backgroundColor:"#fff",padding:"6px 8px",backgroundColor:"#d3d1d1"}}>
-                          <p style={{width:"92%",marginBottom:"0px",fontWeight:"500"}}>{series}</p><IoMdArrowDropdown style={{marginTop:"6px"}} onClick={handleDropdown}/>
+                        <div class="series-dropdown-btn" style={{display:"flex",padding:"6px 8px",backgroundColor:"#d3d1d1"}}>
+                          <p style={{width:"92%",marginBottom:"0px",fontWeight:"500"}}>{series}</p><IoMdArrowDropdown style={{marginTop:"6px",cursor:"pointer"}} onClick={handleDropdown}/>
                         </div>
                         <div className="drop">
                         {
@@ -94,9 +95,9 @@ function Publish (){
                                <p style={{color:"#21259",marginBottom:"6px",fontSize:"15px",fontWeight:"500"}}>Create Series</p>
                                <input type="text" name="series" id="" placeholder="Type Here" style={{border:"none",width:"100%",padding:"10px",borderRadius:"4px",marginBottom:"0px",fontSize:"14px",color:"#666",fontWeight:"500",backgroundColor:"#f4f4f4"}}/>
                                <hr />
-                               <p style={{color:"#21259",marginBottom:"6px",marginTop:"6px",fontSize:"15px",fontWeight:"500",padding:"10px"}} onClick={handleSetSeries}>Not a Series</p>
+                               <p style={{color:"#21259",marginBottom:"6px",marginTop:"6px",fontSize:"15px",fontWeight:"500",padding:"10px",cursor:"pointer"}} onClick={handleSetSeries}>Not a Series</p>
                                <hr />
-                               <p style={{color:"#21259",marginBottom:"6px",marginTop:"6px",fontSize:"15px",fontWeight:"500",padding:"10px"}} onClick={handleSetSeries}>Time Travel A mystery</p>
+                               <p style={{color:"#21259",marginBottom:"6px",marginTop:"6px",fontSize:"15px",fontWeight:"500",padding:"10px",cursor:"pointer"}} onClick={handleSetSeries}>Time Travel A mystery</p>
                             </div>
                         }
                         </div>

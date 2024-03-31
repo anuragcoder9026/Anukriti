@@ -1,5 +1,5 @@
 import JoditEditor from 'jodit-react';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import '../CSS/write.css';
 import { RiDeleteBinLine } from "react-icons/ri";
 import YourComponent from './YourComponent';
@@ -7,16 +7,22 @@ import YourComponent from './YourComponent';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link } from 'react-router-dom';
+import {useDispatch, useSelector } from 'react-redux';
+import { contentAction } from '../store/contentSlice';
 function Write() {
     const editor = useRef(null);
     const [content, setContent] = useState('');
     let date=new Date().toLocaleDateString();
-
-
-    const saveNotify=()=>{ toast.info("Saved Succesfully !",{
+    const dispatch=useDispatch();
+    
+    const saveNotify=()=>{ 
+       dispatch(contentAction.handleContentArray(content));
+        toast.info("Saved Succesfully !",{
         position:"bottom-center",
         theme:"dark"
     })}
+   
+    
     return (
         <div className="text-editor" style={{marginTop: "120px"}}>
             <div class="write-head" style={{backgroundColor:"white"}}>
@@ -38,7 +44,7 @@ function Write() {
                 // config={editorConfig} // Pass the configuration object here
                 onChange={newContent => setContent(newContent)}
             />
-            <YourComponent htmlContent={content}/>
+            {/* <YourComponent htmlContent={content}/> */}
             <ToastContainer style={{marginBottom:"20px"}}/>
         </div>
 
