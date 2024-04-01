@@ -10,10 +10,14 @@ import { MdOutlineEdit } from "react-icons/md";
 import { MdDeleteOutline } from "react-icons/md";
 import {useDispatch} from 'react-redux';
 import { deleteAction } from "../store/deleteSlice";
+import { contentAction } from '../store/contentSlice';
+import {useSelector } from "react-redux";
 function ReadNow({story}){
+         const currentId=useSelector(store=>store.currentContent); 
          const dispatch=useDispatch();
          const handleDelete=()=>{
             dispatch(deleteAction.handlePopup(true));
+            dispatch(contentAction.handleDeleteContent(currentId));
        }
     return(
          <div className="read-now" style={{width:"100%",backgroundColor:"white",padding:"9px",border:"1.5px solid rgba(0,0,0,.125)"}}>

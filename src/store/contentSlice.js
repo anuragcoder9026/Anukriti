@@ -8,6 +8,10 @@ const contentSlice=createSlice({
       reducers:{
         handleContentArray:(state,action)=>{
           return ([...state,action.payload]);
+        },
+        handleDeleteContent:(state,action)=>{
+          let newState=state.filter((_,index)=>index!==action.payload);
+            return newState;
         }
       }
 })
