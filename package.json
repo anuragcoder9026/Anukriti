@@ -1,5 +1,5 @@
 {
-  "homepage": "https://anuragcoder9026.github.io/Anukriti",
+  "homepage": "/",
   "name": "frontend",
   "private": true,
   "version": "0.0.0",
@@ -18,6 +18,8 @@
     "@reduxjs/toolkit": "^2.2.2",
     "bootstrap": "^5.3.3",
     "dompurify": "^3.0.9",
+    "html-react-parser": "^5.1.10",
+    "http-server": "^14.1.1",
     "jodit-react": "^4.0.9",
     "nanoid": "^5.0.6",
     "react": "^18.2.0",

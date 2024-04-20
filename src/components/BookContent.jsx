@@ -30,6 +30,8 @@ import Review from "./Review";
 import { TiTick } from "react-icons/ti";
 import {useSelector } from "react-redux";
 import YourComponent from "./YourComponent";
+
+import parse from 'html-react-parser';
 function BookContent(){
   const currentId=useSelector(store=>store.currentContent);
   const contentList=useSelector(store=>store.contentArray);
@@ -231,7 +233,10 @@ function BookContent(){
                          <div className="chapter-title">Love Story (1)</div>
                             
                          <div className="chapter-body" style={{color:backColor ? '#2c3e50' :'white',fontSize:`${fontSiz}px`,lineHeight:lineHigh}}>
-                         <YourComponent  backColor={backColor} fontSiz={fontSiz} lineHigh={lineHigh} htmlContent={contentList[currentId]}/>
+                         {/* <YourComponent  backColor={backColor} fontSiz={fontSiz} lineHigh={lineHigh} htmlContent={contentList[currentId]}/> */}
+                          {
+                            parse(contentList[currentId])
+                          }
                          </div>
                          <div className="rate-share">
                          {

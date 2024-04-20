@@ -14,10 +14,13 @@ import { deleteAction } from "../store/deleteSlice";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import { contentAction } from '../store/contentSlice';
+
 function OtherCreationInfo(){
      const {id} =useParams();
      const dispatch=useDispatch();
      const deleteModal=useSelector(store=>store.deleteModal);
+     const currentId=useSelector(store=>store.currentContent); 
      const handleDeleteModal=()=>{
         dispatch(deleteAction.handlePopup(false));
     };
@@ -25,7 +28,9 @@ function OtherCreationInfo(){
         dispatch(deleteAction.handlePopup(false));
     },[])
 
-    const deleteNotify=()=>{ toast.success("Deleted Succesfully !",{
+    const deleteNotify=()=>{
+        dispatch(contentAction.handleDeleteContent(currentId));
+         toast.success("Deleted Succesfully !",{
         position:"bottom-center",
         theme:"dark"
     })}
