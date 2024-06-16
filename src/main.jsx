@@ -24,23 +24,23 @@ const router=createBrowserRouter([
   children:[
   {path:"/Anukriti",element:<Home/>},
   {path:"/Anukriti/sign",element:<Sign/>},
-  {path:"/Anukriti/write",element:<Write/>},
+  {path:"/Anukriti/write/",element:<Write/>},
   {path:"/Anukriti/create",element:<Create/>},
   {path:"/Anukriti/explore",element:<Explore/>},
-  {path:"/Anukriti/aboutStory",element:<AboutStory/>},
+  {path:"/Anukriti/aboutStory/:id",element:<AboutStory/>},
   {path:"/Anukriti/profile/:id",element:<Profile/>},
   {path:"/Anukriti/setting",element:<Setting/>},
-  {path:"/Anukriti/other-story/:id",element:<OtherCreationInfo/>},
-  {path:"/Anukriti/genre",element:<Category/>},
+  {path:"/Anukriti/story/:id",element:<OtherCreationInfo/>},
+  {path:"/Anukriti/genre/:category",element:<Category/>},
   {path:"/Anukriti/book-content/:id",element:<BookContent/>},
   {path:"/Anukriti/publish",element:<Publish/>},
   ]
   }
   ]);
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  
     <Provider store={AnukritiStore}>
     <RouterProvider router={router}/>
     </Provider>
-  </React.StrictMode>,
+  
 )

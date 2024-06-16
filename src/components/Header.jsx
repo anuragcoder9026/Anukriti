@@ -7,7 +7,38 @@ import { Link, useLocation } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
 import '../CSS/navbar.css'
 import logoImg from '../assets/logo.png'
+import axios from 'axios';
+import { useSelector,useDispatch } from "react-redux";
+import { afterSignAction } from "../store/aftersignSlice";
+import { userDataAction } from "../store/userdataSlice";
+import { useNavigate } from 'react-router-dom';
 function Header(){
+  const navigate = useNavigate(); 
+  const dispatch=useDispatch();
+  const isAuthenticated=useSelector(store=>store.afterSign);
+  const userinfo=useSelector(store=>store.userData);
+  useEffect(() => {
+    const authenticate = async () => {
+        try {
+            const response = await axios.get('https://anukriti.onrender.com/api/users/check-auth',{
+              withCredentials: true // Include cookies with the request
+              
+          });
+            
+            
+            if (response.status === 200) {
+              dispatch(afterSignAction.handleAfterSign(true));
+              dispatch(userDataAction.handleUserData(response.data));
+          }
+        } catch (error) {
+            console.error('Error fetching data:', error);
+            dispatch(afterSignAction.handleAfterSign(false));
+        }
+    };
+
+    authenticate(); 
+}, []);
+
   const location=useLocation();
   const [disp,setDisp]=useState(false);
   useEffect(()=>{
@@ -31,19 +62,21 @@ function Header(){
             <MdOutlineExplore   className="fs-4 nav-icon category" style={{position:"relative",left:"5px",}}/>
               <Link to="/Anukriti/explore"  className="nav-link " aria-disabled="true" style={{paddingLeft:"9px"}}><span style={{marginLeft:"-5px"}}>Explore</span></Link>
             </li>
-            <li  className="nav-item">
-            <MdOutlineEdit   className="fs-4 nav-icon"/>
-              <Link to="/Anukriti/create"  className="nav-link"  >Write</Link>
-            </li>
-
-            <li  className="nav-item">
-            <CgProfile   className="fs-4 nav-icon"/>
-              <Link to="/Anukriti/sign"  className="nav-link " aria-disabled="true">Sign In</Link>
-            </li>
-            <li  className="nav-item">
-            <CgProfile   className="fs-4 nav-icon"/>
-              <Link to="/Anukriti/profile/self"  className="nav-link " aria-disabled="true">Profile</Link>
-            </li>
+           <li  className="nav-item">
+              <MdOutlineEdit   className="fs-4 nav-icon"/>
+                <Link to="/Anukriti/create"  className="nav-link"  >Write</Link>
+              </li>
+            
+            {
+              !isAuthenticated ?<li  className="nav-item">
+              <CgProfile   className="fs-4 nav-icon"/>
+                <Link to="/Anukriti/sign"  className="nav-link " aria-disabled="true">Sign In</Link>
+              </li>:
+              <li  className="nav-item">
+              <CgProfile   className="fs-4 nav-icon"/>
+                <Link to={`/Anukriti/profile/${userinfo?.username}`}  className="nav-link " aria-disabled="true">Profile</Link>
+              </li>
+            }
             
             <li  className="dropdown nav-dropdown">
               <button  className="btn btn-primary dropdown-toggle text-white py-2 border-2 border-danger" type="button" data-bs-toggle="dropdown" aria-expanded="false">

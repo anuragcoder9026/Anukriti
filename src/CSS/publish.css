@@ -55,7 +55,6 @@ textarea:focus{
 
 .series-dropdown{
     width: 300px;
-    height: 250px;
     background-color: #fff;
     position:absolute;
     z-index: 2000;

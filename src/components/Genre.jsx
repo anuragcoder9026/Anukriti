@@ -5,7 +5,7 @@ function Genre({genre,genreImg}){
 
     return(
          
-          <Link to="/Anukriti/genre" className="genre" style={{
+          <Link to={`/Anukriti/genre/${genre}`} className="genre" style={{
             backgroundImage:` linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 1) 100%),url(${genreImg})`,
             backgroundRepeat:"no-repeat",
             width:"350px",
@@ -15,7 +15,7 @@ function Genre({genre,genreImg}){
             opacity:"0.95",
             textDecoration:"none"
             }}>
-              <p style={{color:"white",position:"relative",top:"160px",fontWeight:"700",marginLeft:"10px"}}>{genre}</p>
+              <p style={{color:"white",position:"relative",top:"160px",fontWeight:"700",marginLeft:"10px",fontSize:"18px"}}>{genre}</p>
           </Link>
     )
 }

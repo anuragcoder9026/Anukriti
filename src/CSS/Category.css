@@ -10,7 +10,6 @@ a{
     white-space: normal;
     overflow: hidden;
     text-overflow: ellipsis;
-    display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical !important;
     word-break: break-word;
@@ -40,6 +39,9 @@ a{
 .genre-card{
     width: 460px;
 }
+.genre-card-right{
+    width: 70%;
+}
 @media screen and (max-width:980px) {
     .genre-card{
         width: 420px;
@@ -52,8 +54,9 @@ a{
 }
 @media screen and (max-width:840px) {
     .genre-card{
-        width: 330px;
+        width: 320px;
     }
+   
 }
 @media screen and (max-width:720px) {
     .genre-card{
@@ -66,12 +69,27 @@ a{
 .genre-author{
     margin-bottom: 5px;
 }
-@media screen and (max-width:340px) {
+@media screen and (max-width:415px) {
+    .genre-card{
+        width: 370px;
+    }
+
+}
+
+@media screen and (max-width:390px) {
+    .genre-card{
+        width: 330px;
+    }
+}
+@media screen and (max-width:345px) {
     .genre-reading{
         font-size: 12px;
     }
     .genre-title{
         font-size: 1.2rem;
+    }
+    .genre-card{
+        width: 300px;
     }
 }
 @media screen and (max-width:310px) {
@@ -80,5 +98,8 @@ a{
     }
     .genre-title{
         font-size: 1.2rem;
+    }
+    .genre-card{
+        width: 270px;
     }
 }

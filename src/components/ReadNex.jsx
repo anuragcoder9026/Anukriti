@@ -1,32 +1,101 @@
 import CreateImg from '../assets/card1.jpg';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { IoMdDownload } from "react-icons/io";
 import { FaEye } from "react-icons/fa";
 import StarCount from './SatrCount';
-function ReadNext(){
-    
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+function ReadNext({postId}){
+    const [nextPost,setNextPost]=useState(null);
+    const [user,setUser]=useState(null);
+    const navigate=useNavigate();
+    const [rating,setRating]=useState(0);
+    useEffect(()=>{
+        const AuthPost = async () => {
+            try {
+                const res = await axios.get('https://anukriti.onrender.com/api/posts/auth-post', {
+                  params: {postId},
+                  headers: {
+                    'Content-Type': 'application/json'
+                  },
+                  withCredentials: true // Include this line to allow cookies
+                });
+                if (res.status === 200) {
+                   setUser(res.data);
+                }
+              
+            } catch (error) {
+              console.error('Error fetching data:', error);
+            }
+          };
+        const getNextPost = async () => {
+            try {
+                const res = await axios.get(`https://anukriti.onrender.com/api/posts/read-next/${postId}`, {
+                  headers: {
+                    'Content-Type': 'application/json'
+                  },
+                  withCredentials: true // Include this line to allow cookies
+                });
+                if (res.status === 200) {
+                  setNextPost(res.data);
+                }
+              
+            } catch (error) {
+              console.error('Error fetching data:', error);
+            }
+          };
+          
+          getNextPost();
+          AuthPost();
+          
+    },[])
+   useEffect(()=>{
+    const getPostRating = async () => {
+      try {
+          const res = await axios.get('https://anukriti.onrender.com/api/posts/get-rating', {
+            params: {postId:nextPost._id},
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            withCredentials: true // Include this line to allow cookies
+          });
+          
+          if (res.status === 200) {
+            setRating(res.data.rating)
+          }
+        
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    getPostRating();
+   },[nextPost])
+    const handleReadNext=()=>{
+        navigate(`/Anukriti/book-content/${nextPost.title}-${nextPost._id}`)
+        setTimeout(() => {
+          window.location.reload();
+        }, 0);
+      }
     return(
-        <div className="read-next" style={{padding:"0px",marginTop:"35px"}}>
-        <div className="read-next-upper" style={{}}>
-            <img src={CreateImg} alt="" className="read-next-upper-left" />
+       user && nextPost && <div className="read-next" style={{padding:"0px",marginTop:"35px"}}>
+        <div className="read-next-upper" style={{}} onClick={handleReadNext}>
+            <img src={nextPost?.coverImage || CreateImg} alt="" className="read-next-upper-left" />
             <div className="read-next-upper-right">
                 <p style={{fontSize:"12px",fontWeight:"500",marginLeft:"8px",marginBottom:"2px"}}>Read the Next part here...</p>
-                <p style={{fontWeight:"450",marginLeft:"8px",marginBottom:"4px"}}>Starting Falling For you</p>
-                <p style={{fontSize:"12px",fontWeight:"500",marginLeft:"8px",marginBottom:"2px"}}>Anurag Singh</p>
+                <p style={{fontWeight:"450",marginLeft:"8px",marginBottom:"4px"}}>{nextPost?.title}</p>
+                <Link to={`/Anukriti/profile/${user?.username}`} style={{fontSize:"12px",fontWeight:"500",marginLeft:"8px",marginBottom:"2px"}}>{user?.firstName ?`${user?.firstName} ${user?.lastName}` : `${user?.username}`}</Link>
                 
-                <div style={{fontSize:"12px",marginLeft:"8px"}}> <StarCount rating={4.8} ratingColor='#056974' size='10px'/><span style={{marginLeft:"5px"}}>4.8</span> </div>
+                <div style={{fontSize:"12px",marginLeft:"8px"}}> <StarCount rating={Math.floor(rating)} ratingColor='#056974' size='10px'/><span style={{marginLeft:"5px"}}>{rating.toFixed(1)}</span> </div>
                    
             </div>
         </div>
         <div className="read-next-bottom">
                  <p className="summary" style={{marginLeft:"1px",fontSize:"15px",height:"60px"}}>
-                      This story is a boy who was very poor and was living in a very small village .He wanted achieve a big position his life but due to income of his family
+                      {nextPost?.summary}
                 </p>
             <div className="read-next-actions">
                 <button className="download-btn"> <IoMdDownload style={{fontSize:"25px",marginRight:"5px",marginBottom:"4px"}}/>Download</button>
-                <Link to="#">
-                    <button className="read-next-btn"><FaEye style={{fontSize:"23px",marginBottom:"3px"}}/> Read Next Part</button>
-                </Link>
+                    <button className="read-next-btn" onClick={handleReadNext}><FaEye style={{fontSize:"23px",marginBottom:"3px"}} /> Read Next Part</button>
 
             </div>
           

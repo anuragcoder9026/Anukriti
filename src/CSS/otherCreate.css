@@ -6,6 +6,15 @@
     border: 1.5px solid rgba(0, 0, 0, 0.125);
     border-radius: 5px;
 }
+.loader{
+    margin-top: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.spinner-border{
+   margin-bottom: 100px;
+}
 .delete-popup{
     width: 100%;
     height: 180px;
@@ -49,6 +58,17 @@
     width: 160px;
     height: 256px;
 }
+.read-now-upper-left img{
+    width: 160px;
+    height: 256px;
+}
+.camera-img{
+    color: white;
+    position: absolute;
+    font-size: 22px;
+    top: 48%;
+    left: 11%;
+} 
 .read-next-upper-left{
     width: 90px;
     height: 105px;
@@ -80,6 +100,10 @@ margin-top: 5px;
             width: 90%;
             margin: 5px auto;
             }
+            .camera-img{
+                top: 48%;
+                left: 14%;
+            } 
   }
   @media screen and (max-width: 610px) {
     .other-creation-info{
@@ -104,7 +128,14 @@ margin-top: 5px;
         width: 130px;
         height: 220px;
       }
-      
+      .read-now-upper-left img{
+        width: 130px;
+        height: 220px;
+    }
+    .camera-img{
+        top: 43%;
+        left: 12%;
+    } 
        .read-now-share{
         text-align: left;
        }

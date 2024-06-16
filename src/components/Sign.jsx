@@ -1,69 +1,63 @@
-import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGooglePlusG, faFacebookF, faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+import React, { useEffect, useState } from "react";
 import '../CSS/sign.css';
-
-const Sign = () => {
-    const [regActive,setRegActive]=useState('');
-const registerBtn=() => {
-    setRegActive('active')
-};
-const loginBtn=() => {
-    setRegActive('');
-};
-
+import SignInForm from "./SignIn";
+import SignUpForm from "./SignUp";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+function Sign(){
+  const [type, setType] = useState("signIn");
+  const handleOnClick = text => {
+    if (text !== type) {
+      setType(text);
+      return;
+    }
+  };
+  const isAuthenticated=useSelector(store=>store.afterSign);
+  const navigate=useNavigate();
+  const user=useSelector(store=>store.userData);
+  useEffect(()=>{
+    if(isAuthenticated){
+       navigate(`/Anukriti/profile/${user.username}`);
+    }
+  },[user])
+  const containerClass =
+    "sign-container " + (type === "signUp" ? "right-panel-active" : "");
   return (
     <div className="sign">
-      <div className={`container ${regActive}`} id="container">
-        <div className="form-container sign-up">
-          <form>
-            <h1>Create Account</h1>
-            <div className="social-icons">
-              <a href="#" className="icon"> <FontAwesomeIcon icon={faGooglePlusG} /></a>
-              <a href="#" className="icon"><FontAwesomeIcon icon={faFacebookF} /></a>
-              <a href="#" className="icon"><FontAwesomeIcon icon={faGithub} /></a>
-              <a href="#" className="icon"><FontAwesomeIcon icon={faLinkedinIn} /></a>
-            </div>
-            <span>or use your email for registration</span>
-            <input type="text" placeholder="Name" />
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
-            <button>Sign Up</button>
-          </form>
-        </div>
-        <div className="form-container sign-in">
-          <form>
-            <h1>Sign In</h1>
-            <div className="social-icons">
-            <a href="#" className="icon"> <FontAwesomeIcon icon={faGooglePlusG} /></a>
-              <a href="#" className="icon"><FontAwesomeIcon icon={faFacebookF} /></a>
-              <a href="#" className="icon"><FontAwesomeIcon icon={faGithub} /></a>
-              <a href="#" className="icon"><FontAwesomeIcon icon={faLinkedinIn} /></a>
-            </div>
-            <span>or use your email password</span>
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
-            <a href="#">Forget Your Password?</a>
-            <button>Sign In</button>
-          </form>
-        </div>
-        <div className="toggle-container">
-          <div className="toggle">
-            <div className="toggle-panel toggle-left">
+      <div className={containerClass} id="sign-container">
+        <SignUpForm />
+        <SignInForm />
+        <div className="overlay-container">
+          <div className="overlay">
+            <div className="overlay-panel overlay-left">
               <h1>Welcome Back!</h1>
-              <p>Enter your personal details to use all of site features</p>
-              <button className="hidden" id="login" onClick={loginBtn}>Sign In</button>
+              <p>
+                To keep connected with us please login with your personal info
+              </p>
+              <button
+                className="ghost"
+                id="signIn"
+                onClick={() => handleOnClick("signIn")}
+              >
+                Sign In
+              </button>
             </div>
-            <div className="toggle-panel toggle-right">
+            <div className="overlay-panel overlay-right">
               <h1>Hello, Friend!</h1>
-              <p>Register with your personal details to use all of site features</p>
-              <button className="hidden" id="register" onClick={registerBtn}>Sign Up</button>
+              <p>Enter your personal details and start journey with us</p>
+              <button
+                className="ghost "
+                id="signUp"
+                onClick={() => handleOnClick("signUp")}
+              >
+                Sign Up
+              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
   );
-};
+}
 
 export default Sign;
