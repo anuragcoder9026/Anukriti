@@ -5,7 +5,8 @@ import { MdOutlineLibraryAdd } from "react-icons/md";
 import { BsWhatsapp } from "react-icons/bs";
 import { FaFacebookF } from "react-icons/fa";
 import CreateImg from '../assets/card1.jpg';
-import { Link, useLocation} from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { MdOutlineEdit } from "react-icons/md";
 import { MdDeleteOutline } from "react-icons/md";
 import {useDispatch, useSelector} from 'react-redux';
@@ -186,11 +187,13 @@ function ReadNow({story}){
                  }
              }
          };
-          const location=useLocation();
+         const location=useLocation();
   const handleWhatsappClick = () => {
     const message = `Check this story on Anukriti: ${location.pathname}`;
     const whatsappURL = `https://wa.me/?text=${encodeURIComponent(message)}`;
     window.open(whatsappURL, '_blank');
+  };
+    
     return(
         !postLoader&& user && contentInfo &&<div className="read-now" style={{width:"100%",backgroundColor:"white",padding:"9px",border:"1.5px solid rgba(0,0,0,.125)"}}>
             <div className="read-now-upper" style={{}}>
