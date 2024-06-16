@@ -31,7 +31,7 @@ function SignUpForm() {
     try {
         const jsonFormData = JSON.stringify(formData); 
         console.log(jsonFormData);
-      const res = await axios.post('http://localhost:8000/api/users/signup', jsonFormData, {
+      const res = await axios.post('https://anukriti.onrender.com/api/users/signup', jsonFormData, {
         headers: {
           'Content-Type': 'application/json'
         },
