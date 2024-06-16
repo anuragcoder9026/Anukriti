@@ -30,7 +30,7 @@ function SignInForm() {
         setLoading(true);
         try {
             const jsonFormData = JSON.stringify(formData); 
-            const res = await axios.post('https://anukriti.onrender.com/api/users/login', jsonFormData, {
+            const res = await axios.post('http://localhost:8000/api/users/login', jsonFormData, {
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -56,8 +56,8 @@ function SignInForm() {
     };
 
     return (
-        <div className="sign-form-container sign-in-container">
-            <form onSubmit={handleSubmit}>
+        <div>
+            <form onSubmit={handleSubmit} style={{paddingTop:"40px",paddingBottom:"50px"}}>
                 <h1>Sign in</h1>
                 <div className="sign-social-container">
                     <a href="#" className="social"><FaFacebookF /></a>
