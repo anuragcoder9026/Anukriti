@@ -20,43 +20,30 @@ function Sign(){
        navigate(`/Anukriti/profile/${user.username}`);
     }
   },[user])
-  const containerClass =
-    "sign-container " + (type === "signUp" ? "right-panel-active" : "");
+  const [signInColor,setSignInColor]=useState('blue');
+  const [signUpColor,setSignUpColor]=useState('orangered');
+  const handleSignUp=()=>{
+    setSignUpColor('blue');
+    setSignInColor('orangered');
+  }
+  const handleSignIn=()=>{
+    setSignInColor('blue');
+    setSignUpColor('orangered');
+  }
   return (
-    <div className="sign">
-      <div className={containerClass} id="sign-container">
-        <SignUpForm />
-        <SignInForm />
-        <div className="overlay-container">
-          <div className="overlay">
-            <div className="overlay-panel overlay-left">
-              <h1>Welcome Back!</h1>
-              <p>
-                To keep connected with us please login with your personal info
-              </p>
-              <button
-                className="ghost"
-                id="signIn"
-                onClick={() => handleOnClick("signIn")}
-              >
-                Sign In
-              </button>
-            </div>
-            <div className="overlay-panel overlay-right">
-              <h1>Hello, Friend!</h1>
-              <p>Enter your personal details and start journey with us</p>
-              <button
-                className="ghost "
-                id="signUp"
-                onClick={() => handleOnClick("signUp")}
-              >
-                Sign Up
-              </button>
-            </div>
-          </div>
-        </div>
+    <>
+    <div className="sign" style={{backgroundColor:"rgb(241, 236, 236)"}}>
+      <div className="sign-head" style={{padding:"auto",marginBottom:"20px"}}>
+        <span style={{cursor:"pointer",fontWeight:"500",color:"white",fontSize:"16px",backgroundColor:signUpColor,padding:"10px",borderTopLeftRadius:"5px",borderBottomLeftRadius:"5px"}} onClick={handleSignUp}>Sign Up</span>
+        <span style={{cursor:"pointer",fontWeight:"500",color:"white",fontSize:"16px",backgroundColor:signInColor,padding:"10px",borderBottomRightRadius:"5px",borderTopRightRadius:"5px"}} onClick={handleSignIn}>Sign In</span>
+      </div>
+      <div id="sign-container">
+        {
+          signInColor=='blue'?<SignInForm />:<SignUpForm/> 
+        }
       </div>
     </div>
+    </>
   );
 }
 
