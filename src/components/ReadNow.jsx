@@ -5,7 +5,7 @@ import { MdOutlineLibraryAdd } from "react-icons/md";
 import { BsWhatsapp } from "react-icons/bs";
 import { FaFacebookF } from "react-icons/fa";
 import CreateImg from '../assets/card1.jpg';
-import { Link ,useLocation} from "react-router-dom";
+import { Link, useLocation} from "react-router-dom";
 import { MdOutlineEdit } from "react-icons/md";
 import { MdDeleteOutline } from "react-icons/md";
 import {useDispatch, useSelector} from 'react-redux';
