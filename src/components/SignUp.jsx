@@ -31,7 +31,7 @@ function SignUpForm() {
     try {
         const jsonFormData = JSON.stringify(formData); 
         console.log(jsonFormData);
-      const res = await axios.post('https://anukriti.onrender.com/api/users/signup', jsonFormData, {
+      const res = await axios.post('http://localhost:8000/api/users/signup', jsonFormData, {
         headers: {
           'Content-Type': 'application/json'
         },
@@ -56,8 +56,8 @@ function SignUpForm() {
   };
 
   return (
-    <div className="sign-form-container sign-up-container">
-      <form onSubmit={handleSubmit}>
+    <div>
+      <form onSubmit={handleSubmit} style={{paddingTop:"40px",paddingBottom:"50px"}}>
         <h1>Create Account</h1>
         <div className="sign-social-container">
           <a href="#" className="social">
