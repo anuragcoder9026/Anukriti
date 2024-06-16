@@ -189,7 +189,7 @@ function ReadNow({story}){
          };
          const location=useLocation();
   const handleWhatsappClick = () => {
-    const message = `Check this story on Anukriti: ${location.pathname}`;
+    const message = `Check this story on Anukriti: https://anuragcoder9026.github.io${location.pathname}`;
     const whatsappURL = `https://wa.me/?text=${encodeURIComponent(message)}`;
     window.open(whatsappURL, '_blank');
   };
