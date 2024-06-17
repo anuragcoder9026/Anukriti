@@ -4,8 +4,10 @@ import { IoMdDownload } from "react-icons/io";
 import { FaEye } from "react-icons/fa";
 import StarCount from './SatrCount';
 import { useEffect, useState } from 'react';
-import html2pdf from 'html2pdf.js';
 import axios from 'axios';
+
+import html2pdf from 'html2pdf.js'
+
 function ReadNext({postId}){
     const [nextPost,setNextPost]=useState(null);
     const [user,setUser]=useState(null);
@@ -37,6 +39,7 @@ function ReadNext({postId}){
                   },
                   withCredentials: true // Include this line to allow cookies
                 });
+                console.log("nextpost:",res.data);
                 if (res.status === 200) {
                   setNextPost(res.data);
                 }
@@ -71,13 +74,6 @@ function ReadNext({postId}){
     };
     getPostRating();
    },[nextPost])
-    const handleReadNext=()=>{
-        navigate(`/Anukriti/book-content/${nextPost.title}-${nextPost._id}`)
-        setTimeout(() => {
-          window.location.reload();
-        }, 0);
-      }
-
     const handleReadNext=()=>{
         navigate(`/Anukriti/book-content/${nextPost.title}-${nextPost._id}`)
         setTimeout(() => {
@@ -146,7 +142,7 @@ function ReadNext({postId}){
                       {nextPost?.summary}
                 </p>
             <div className="read-next-actions">
-                <button className="download-btn" onClick={handleDownload}> <IoMdDownload style={{fontSize:"25px",marginRight:"5px",marginBottom:"4px"}}/>Download</button>
+                <button className="download-btn" onClick={handleDownload}> <IoMdDownload style={{fontSize:"25px",marginRight:"5px",marginBottom:"4px"}} />Download</button>
                     <button className="read-next-btn" onClick={handleReadNext}><FaEye style={{fontSize:"23px",marginBottom:"3px"}} /> Read Next Part</button>
 
             </div>
