@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { FaFacebookF } from "react-icons/fa";
 import { GrGooglePlus } from "react-icons/gr";
 import { FaLinkedinIn } from "react-icons/fa";
@@ -54,14 +54,16 @@ function SignInForm() {
             setLoading(false);
         }
     };
-
+    const location =useLocation();
+   const queryParams = new URLSearchParams(location.search);
+    const LoginError = queryParams.get('error');
     return (
         <div>
             <form onSubmit={handleSubmit} style={{paddingTop:"40px",paddingBottom:"50px"}}>
                 <h1>Sign in</h1>
                 <div className="sign-social-container">
                     <a href="#" className="social"><FaFacebookF /></a>
-                    <a href="#" className="social"><GrGooglePlus /></a>
+                    <a href="https://anukriti.onrender.com/auth/google/login" className="social"><GrGooglePlus /></a>
                     <a href="#" className="social"><FaLinkedinIn /></a>
                 </div>
                 <span>or use your account</span>
@@ -84,9 +86,14 @@ function SignInForm() {
                 {loading &&  <Box sx={{ width: '50%',marginTop:'20px' }}><LinearProgress /> </Box>}
                 {response && !loading && !error && <p style={{ color: 'green', fontWeight: "500" }}>{response}</p>}
                 {error && !loading && <p style={{ color: 'red', fontWeight: "500" }}>{error}</p>}
+                {LoginError === 'email_not_exists' && 
+                <p style={{ color: 'red', fontWeight: "500"  }}>This email do not exists. </p>
+                 }
+                 
             </form>
         </div>
     );
 }
 
 export default SignInForm;
+
