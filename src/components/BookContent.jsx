@@ -306,6 +306,19 @@ const handleFollow=async()=>{
 
   const [bottom,setBottom]=useState(false);
   const handleBottom=(val)=>{setBottom(val)};
+
+  
+  const location=useLocation();
+  const handleWhatsappClick = () => {
+    const message = `Check this story on Anukriti:https://anuragcoder9026.github.io${location.pathname}`;
+    const whatsappURL = `https://wa.me/?text=${encodeURIComponent(message)}`;
+    window.open(whatsappURL, '_blank');
+  };
+  const handleFacebookClick = () => {
+    const message = `Check this story on Anukriti: https://anuragcoder9026.github.io${location.pathname}`;
+    const facebookURL = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(message)}`;
+    window.open(facebookURL, '_blank');
+  };
     return(
            <div className="book-content" >
               <div className="chapter-sidebar" style={{left:side ? '0px' :'-310px',paddingBottom:"10px"}}>
@@ -392,10 +405,10 @@ const handleFollow=async()=>{
                         <div className="side-share" style={{width:"40%",height:"100%"}}>
                                <p style={{marginLeft:"8px",marginBottom:"11px"}}>Share</p>
                                <span style={{backgroundColor:"green",padding:"6px 8px",borderRadius:"50%",width:"25px",height:"25px",marginLeft:"5px",marginRight:"5px"}}>
-                            <BsWhatsapp style={{color:"white"}}/> 
+                            <BsWhatsapp style={{color:"white"}} onClick={handleWhatsappClick}/> 
                            </span>
                             <span style={{backgroundColor:"blue",padding:"6px 8px",borderRadius:"50%",width:"25px",height:"25px",marginLeft:"5px"}}>
-                           <FaFacebookF style={{color:"white"}}/> 
+                          <FaFacebookF style={{color:"white"}} onClick={handleFacebookClick}/> 
                           </span>  
                         </div>
 
@@ -468,10 +481,10 @@ const handleFollow=async()=>{
                             <div className="chapter-share">
                             <p style={{fontSize:"13px",marginBottom:"4px",textAlign:"left",paddingLeft:"8px"}}>share</p>
                             <span style={{backgroundColor:"green",padding:"6px 8px",borderRadius:"50%",width:"25px",height:"25px",marginLeft:"5px",marginRight:"5px"}}>
-                            <BsWhatsapp style={{color:"white"}}/> 
+                           <BsWhatsapp style={{color:"white"}} onClick={handleWhatsappClick}/> 
                            </span>
                             <span style={{backgroundColor:"blue",padding:"6px 8px",borderRadius:"50%",width:"25px",height:"25px",marginLeft:"5px"}}>
-                           <FaFacebookF style={{color:"white"}}/> 
+                          <FaFacebookF style={{color:"white"}} onClick={handleFacebookClick}/> 
                           </span>
                           <span style={{marginLeft:"8px",fontSize:"18px"}}>
                           <MdShare />
