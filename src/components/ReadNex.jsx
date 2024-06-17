@@ -4,6 +4,7 @@ import { IoMdDownload } from "react-icons/io";
 import { FaEye } from "react-icons/fa";
 import StarCount from './SatrCount';
 import { useEffect, useState } from 'react';
+import html2pdf from 'html2pdf.js'
 import axios from 'axios';
 function ReadNext({postId}){
     const [nextPost,setNextPost]=useState(null);
@@ -76,6 +77,57 @@ function ReadNext({postId}){
           window.location.reload();
         }, 0);
       }
+
+    const handleReadNext=()=>{
+        navigate(`/Anukriti/book-content/${nextPost.title}-${nextPost._id}`)
+        setTimeout(() => {
+          window.location.reload();
+        }, 0);
+      }
+      
+      const handleDownload = () => {
+        const element = document.createElement('div');
+        element.innerHTML = `<img src="${nextPost.coverImage}" alt="Cover Image"><h2>${nextPost.title}</h2>${nextPost.content}`;
+      
+        const images = element.querySelectorAll('img');
+        const promises = [];
+      
+        images.forEach(img => {
+          const src = img.getAttribute('src');
+          if (src && src.startsWith('http')) {
+            const promise = new Promise((resolve, reject) => {
+              fetch(src)
+                .then(response => response.blob())
+                .then(blob => {
+                  const reader = new FileReader();
+                  reader.onload = () => {
+                    const dataUrl = reader.result;
+                    img.setAttribute('src', dataUrl);
+                    resolve();
+                  };
+                  reader.onerror = reject;
+                  reader.readAsDataURL(blob);
+                })
+                .catch(error => {
+                  console.error('Error fetching image:', error);
+                  reject(error);
+                });
+            });
+            promises.push(promise);
+          }
+        });
+      
+        Promise.all(promises).then(() => {
+          html2pdf().from(element).set({
+            margin: 1,
+            filename:`${nextPost.title}.pdf`,
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2, logging: true, dpi: 192, letterRendering: true },
+            jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+          }).save();
+        });
+      };
+      
     return(
        user && nextPost && <div className="read-next" style={{padding:"0px",marginTop:"35px"}}>
         <div className="read-next-upper" style={{}} onClick={handleReadNext}>
@@ -94,7 +146,7 @@ function ReadNext({postId}){
                       {nextPost?.summary}
                 </p>
             <div className="read-next-actions">
-                <button className="download-btn"> <IoMdDownload style={{fontSize:"25px",marginRight:"5px",marginBottom:"4px"}}/>Download</button>
+                <button className="download-btn" onClick={handleDownload}> <IoMdDownload style={{fontSize:"25px",marginRight:"5px",marginBottom:"4px"}}/>Download</button>
                     <button className="read-next-btn" onClick={handleReadNext}><FaEye style={{fontSize:"23px",marginBottom:"3px"}} /> Read Next Part</button>
 
             </div>
