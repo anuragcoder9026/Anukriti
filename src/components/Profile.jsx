@@ -95,6 +95,7 @@ function Profile(){
    const {id}=useParams();
    const[user,setUser]=useState(null);
    const[userAbout,setUserAbout]=useState(null);
+    const[reads,setReads]=useState(null);
    useEffect(()=>{
     const getProfile = async () => {
       try {
@@ -113,8 +114,22 @@ function Profile(){
           console.error('Error fetching data:', error);
         }
       };
-      
+      const getTotalReads = async () => {
+        try {
+            const response = await axios.get(`https://anukriti.onrender.com/api/users/get-total-read/${id}`,{
+              withCredentials: true // Include cookies with the request
+              
+          });
+            
+          if (response.status === 200) {
+             setReads(response.data.reads);
+            }
+          } catch (error) {
+            console.error('Error fetching data:', error);
+          }
+        };
       getProfile();   
+      getTotalReads();   
     },[id])
  ///
   
@@ -248,7 +263,7 @@ function Profile(){
                
                </div>
                <p style={{textAlign:"center",fontWeight:"bold",margin:"0"}}>{user?.firstName ?`${user?.firstName} ${user?.lastName}` : `${user?.username}`}</p>
-               <p style={{textAlign:"center",fontSize:"12px"}}>Read by 452 people</p>
+               <p style={{textAlign:"center",fontSize:"12px"}}>Read by {reads} people</p>
         </div>
         {show && <Example/>}
         <div className="title-about" style={{marginTop:"-50px",marginLeft:"5%"}}>
