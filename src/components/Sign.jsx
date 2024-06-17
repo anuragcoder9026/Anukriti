@@ -3,7 +3,7 @@ import '../CSS/sign.css';
 import SignInForm from "./SignIn";
 import SignUpForm from "./SignUp";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 function Sign(){
   const [type, setType] = useState("signIn");
   const handleOnClick = text => {
@@ -30,6 +30,19 @@ function Sign(){
     setSignInColor('blue');
     setSignUpColor('orangered');
   }
+  const location=useLocation();
+  const queryParams = new URLSearchParams(location.search);
+    const Error = queryParams.get('error');
+
+    useEffect(()=>{
+      if(Error === 'email_exists') {
+        handleSignUp();
+       }
+       else{
+        handleSignIn();
+       }
+    },[])
+ 
   return (
     <>
     <div className="sign" style={{backgroundColor:"rgb(241, 236, 236)"}}>
@@ -39,8 +52,10 @@ function Sign(){
       </div>
       <div id="sign-container">
         {
-          signInColor=='blue'?<SignInForm />:<SignUpForm/> 
+  
+          signInColor==='blue' ? <SignInForm/> :<SignUpForm/>
         }
+        
       </div>
     </div>
     </>
