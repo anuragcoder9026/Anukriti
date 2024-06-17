@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { FaFacebookF } from "react-icons/fa";
 import { GrGooglePlus } from "react-icons/gr";
 import { FaLinkedinIn } from "react-icons/fa";
@@ -30,7 +30,7 @@ function SignUpForm() {
     setLoading(true);
     try {
         const jsonFormData = JSON.stringify(formData); 
-        console.log(jsonFormData);
+        
       const res = await axios.post('https://anukriti.onrender.com/api/users/signup', jsonFormData, {
         headers: {
           'Content-Type': 'application/json'
@@ -54,7 +54,9 @@ function SignUpForm() {
       setLoading(false);
     }
   };
-
+  const location=useLocation();
+  const queryParams = new URLSearchParams(location.search);
+    const SignUpError = queryParams.get('error');
   return (
     <div>
       <form onSubmit={handleSubmit} style={{paddingTop:"40px",paddingBottom:"50px"}}>
@@ -63,7 +65,7 @@ function SignUpForm() {
           <a href="#" className="social">
             <FaFacebookF />
           </a>
-          <a href="#" className="social">
+          <a href="https://anukriti.onrender.com/auth/google/sign" className="social">
             <GrGooglePlus />
           </a>
           <a href="#" className="social">
@@ -96,6 +98,9 @@ function SignUpForm() {
         {loading && <Box sx={{ width: '50%',marginTop:'20px' }}><LinearProgress /> </Box>}
         {response && !loading && !error && <p style={{ color: 'green', fontWeight: "500" }}>{response}</p>}
         {error && !loading &&<p style={{ color: 'red', fontWeight: "500" }}>{error}</p>}
+        {SignUpError === 'email_exists' && 
+                <p style={{ color: 'red', fontWeight: "500"  }}>This email already exists. </p>
+         }
       </form>
     </div>
   );
