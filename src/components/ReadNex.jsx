@@ -4,7 +4,7 @@ import { IoMdDownload } from "react-icons/io";
 import { FaEye } from "react-icons/fa";
 import StarCount from './SatrCount';
 import { useEffect, useState } from 'react';
-import html2pdf from 'html2pdf.js'
+import html2pdf from 'html2pdf.js';
 import axios from 'axios';
 function ReadNext({postId}){
     const [nextPost,setNextPost]=useState(null);
