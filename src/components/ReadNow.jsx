@@ -193,7 +193,11 @@ function ReadNow({story}){
     const whatsappURL = `https://wa.me/?text=${encodeURIComponent(message)}`;
     window.open(whatsappURL, '_blank');
   };
-    
+    const handleFacebookClick = () => {
+    const message = `Check this story on Anukriti: https://anuragcoder9026.github.io${location.pathname}`;
+    const facebookURL = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(message)}`;
+    window.open(facebookURL, '_blank');
+  };
     return(
         !postLoader&& user && contentInfo &&<div className="read-now" style={{width:"100%",backgroundColor:"white",padding:"9px",border:"1.5px solid rgba(0,0,0,.125)"}}>
             <div className="read-now-upper" style={{}}>
@@ -256,7 +260,8 @@ function ReadNow({story}){
                         <BsWhatsapp style={{color:"white"}} onClick={handleWhatsappClick}/> 
                     </span>
                     <span style={{backgroundColor:"blue",padding:"6px 8px",borderRadius:"50%",width:"25px",height:"25px",marginLeft:"5px"}}>
-                        <FaFacebookF style={{color:"white"}}/> 
+                        <FaFacebookF style={{color:"white"}} onClick={handleFacebookClick}/> 
+                      
                     </span>
                 </div>
             </div>
