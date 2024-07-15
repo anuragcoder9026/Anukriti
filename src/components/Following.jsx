@@ -91,27 +91,44 @@ function Following({id}){
                 textAlign:"center",
                 fontWeight:"500"
              }}
-             ><Link to={`/Anukriti/profile/${user?.username}`}> {user?.firstName ?`${user?.firstName} ${user?.lastName}` : `${user?.username}`} </Link></div>
-             <div className="follower-count" 
-             style={{
-                fontSize:"11px",
-                textAlign:"center"
-             }}
-             >Followers: <b>{user?.followers?.length}</b></div>
-             {follow && <div className="follow-btn" style={{display:"flex",justifyContent:"center",marginTop:"10px"}}>
-             <button style={{
+             >
+              {
+                user? <Link to={`/Anukriti/profile/${user?.username}`}> {user?.firstName ?`${user?.firstName} ${user?.lastName}` : `${user?.username}`} </Link>:<div style={{backgroundColor:"#e5e3e3",height:"17px"}}></div>
+              }
+             </div>
+             {
+              user? <div className="follower-count" 
+              style={{
+                 fontSize:"11px",
+                 textAlign:"center"
+              }}
+              >Followers: <b>{user?.followers?.length}</b></div>:
+              <div style={{backgroundColor:"#e5e3e3",height:"17px",width:"65%",margin:"auto"}}></div>
+             }
+            
+             {<div className="follow-btn" style={{display:"flex",justifyContent:"center",marginTop:"10px"}}>
+              {
+                user&&follow ?<button style={{
+                  border:"none",
+                  background:"#d0021b",
+                  color:"#fff",
+                  fontSize:"12px",
+                  margin:"auto auto",
+                  padding:"5px 8px",
+                  borderRadius:"3px"
+               }} onClick={handleFollow}>
+               {
+                 ((follow==='Follow' && <IoPersonAdd style={{color:"white",fontSize:"13px",marginBottom:"3px",marginRight:"5px"}}/>)||(follow==='Following' && <TiTick style={{color:"white",fontSize:"16px",marginBottom:"2px",marginRight:"3px"}}/>))
+               }
+               {follow}</button>: <button style={{
                 border:"none",
                 background:"#d0021b",
                 color:"#fff",
-                fontSize:"12px",
-                margin:"auto auto",
-                padding:"5px 8px",
+                padding:"15px 48px",
                 borderRadius:"3px"
-             }} onClick={handleFollow}>
-             {
-               ((follow==='Follow' && <IoPersonAdd style={{color:"white",fontSize:"13px",marginBottom:"3px",marginRight:"5px"}}/>)||(follow==='Following' && <TiTick style={{color:"white",fontSize:"16px",marginBottom:"2px",marginRight:"3px"}}/>))
-             }
-             {follow}</button>
+             }}></button>
+              }
+             
              </div>}
           </div>
     )
