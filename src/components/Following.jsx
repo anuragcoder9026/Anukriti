@@ -106,7 +106,7 @@ function Following({id}){
               <div style={{backgroundColor:"#e5e3e3",height:"17px",width:"65%",margin:"auto"}}></div>
              }
             
-             {<div className="follow-btn" style={{display:"flex",justifyContent:"center",marginTop:"10px"}}>
+             {!user?.email && <div className="follow-btn" style={{display:"flex",justifyContent:"center",marginTop:"10px"}}>
               {
                 user&&follow ?<button style={{
                   border:"none",
@@ -120,13 +120,13 @@ function Following({id}){
                {
                  ((follow==='Follow' && <IoPersonAdd style={{color:"white",fontSize:"13px",marginBottom:"3px",marginRight:"5px"}}/>)||(follow==='Following' && <TiTick style={{color:"white",fontSize:"16px",marginBottom:"2px",marginRight:"3px"}}/>))
                }
-               {follow}</button>:  follow ?<button style={{
+               {follow}</button>: <button style={{
                 border:"none",
                 background:"#d0021b",
                 color:"#fff",
                 padding:"15px 48px",
                 borderRadius:"3px"
-             }}></button>: <div></div>
+             }}></button>
               }
              
              </div>}
