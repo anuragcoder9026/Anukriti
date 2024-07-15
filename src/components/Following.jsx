@@ -120,13 +120,13 @@ function Following({id}){
                {
                  ((follow==='Follow' && <IoPersonAdd style={{color:"white",fontSize:"13px",marginBottom:"3px",marginRight:"5px"}}/>)||(follow==='Following' && <TiTick style={{color:"white",fontSize:"16px",marginBottom:"2px",marginRight:"3px"}}/>))
                }
-               {follow}</button>: <button style={{
+               {follow}</button>:  follow ?<button style={{
                 border:"none",
                 background:"#d0021b",
                 color:"#fff",
                 padding:"15px 48px",
                 borderRadius:"3px"
-             }}></button>
+             }}></button>: <div></div>
               }
              
              </div>}
