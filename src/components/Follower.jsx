@@ -76,7 +76,7 @@ function Follower({id}){
     }
     }
     return(
-          <div className="user-follower" style={{width:"151px",height:"211px",border:"1px solid #d3d2d2",marginBottom:"6px"}}>
+         <div className="user-follower" style={{width:"151px",height:"211px",border:"1px solid #d3d2d2",marginBottom:"6px"}}>
              <img src={user?.profileImage || userImg} alt="" srcset="" style={{width:"100px",height:"100px",borderRadius:"50%",margin:"10px 24.2px"}}/>
              <div className="follower-name"
              style={{
@@ -91,15 +91,24 @@ function Follower({id}){
                 textAlign:"center",
                 fontWeight:"500"
              }}
-             ><Link to={`/Anukriti/profile/${user?.username}`}> {user?.firstName ?`${user?.firstName} ${user?.lastName}` : `${user?.username}`} </Link></div>
-             <div className="follower-count" 
-             style={{
-                fontSize:"11px",
-                textAlign:"center"
-             }}
-             >Followers: <b>{user?.followers?.length}</b></div>
-             {follow && <div className="follow-btn" style={{display:"flex",justifyContent:"center",marginTop:"10px"}}>
-             <button style={{
+             >
+              {
+                user?<Link to={`/Anukriti/profile/${user?.username}`}> {user?.firstName ?`${user?.firstName} ${user?.lastName}` : `${user?.username}`} 
+             </Link>:<div style={{backgroundColor:"#e5e3e3",height:"17px"}}></div>
+              } 
+             </div>
+             {
+              user?<div className="follower-count" 
+              style={{
+                 fontSize:"11px",
+                 textAlign:"center"
+              }}
+              >Followers: <b>{user?.followers?.length}</b>
+              </div> :<div style={{backgroundColor:"#e5e3e3",height:"17px",width:"65%",margin:"auto"}}></div>
+             }
+             {<div className="follow-btn" style={{display:"flex",justifyContent:"center",marginTop:"10px"}}>
+             {
+              user&& follow?<button style={{
                 border:"none",
                 background:"#d0021b",
                 color:"#fff",
@@ -111,8 +120,17 @@ function Follower({id}){
              {
                ((follow==='Follow' && <IoPersonAdd style={{color:"white",fontSize:"13px",marginBottom:"3px",marginRight:"5px"}}/>)||(follow==='Following' && <TiTick style={{color:"white",fontSize:"16px",marginBottom:"2px",marginRight:"3px"}}/>))
              }
-             {follow}</button>
-             </div>}
+             {follow}</button>:
+              <button style={{
+                border:"none",
+                background:"#d0021b",
+                color:"#fff",
+                padding:"15px 48px",
+                borderRadius:"3px"
+             }}></button>
+             }
+             </div>
+             }
           </div>
     )
 
