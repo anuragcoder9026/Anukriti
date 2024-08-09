@@ -111,6 +111,16 @@ function AboutStory(){
 // console.log(chapters);
 // console.log("user:",user);
 // console.log("postInfo:",postInfo);
+function formatFollowers(followers) {
+    if (followers >= 1_000_000) {
+        return (followers / 1_000_000).toFixed(1) + 'M';
+    } else if (followers >= 1_000) {
+        return (followers / 1_000).toFixed(1) + 'k';
+    } else {
+        return followers.toString();
+    }
+}
+  
     useEffect(()=>{
       CheckFollow();
     },[user])
@@ -306,7 +316,7 @@ function AboutStory(){
                      <Link to={`/Anukriti/profile/${user?.username}`} style={{marginTop:"15px"}}><img src={user?.profileImage || userImg} alt="" srcset="" style={{width:"56px",height:"56px",borderRadius:"50%"}}/></Link>
                     <div className="name-follow" style={{display:"flex",flexDirection:"column",justifyContent:"center",height:"100%",marginLeft:"14px"}}>
                       <Link to={`/Anukriti/profile/${user?.username}`} className="auth-name">{user?.firstName ?`${user?.firstName} ${user?.lastName}` : `${user?.username}`}</Link>
-                      <Link to={`/Anukriti/profile/${user?.username}`} className="auth-follow">5K Follower</Link> 
+                      <Link to={`/Anukriti/profile/${user?.username}`} className="auth-follow">{formatFollowers(user?.followers.length)}  Follower</Link> 
                     </div>
                </div>
                {
