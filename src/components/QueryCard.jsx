@@ -25,7 +25,7 @@ function QueryCard({id}){
     useEffect(() => {
         const getPostInfo = async () => {
           try {
-              const res = await axios.get('https://anukriti.onrender.com/content-info', {
+              const res = await axios.get('https://anukriti.onrender.com/api/posts/content-info', {
                 params: {id},
                 headers: {
                   'Content-Type': 'application/json'
