@@ -1,0 +1,23 @@
+.sorry {
+    font-size: 35px;
+    font-weight: 700;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ }
+  @media screen and (max-width:495px) {
+    .sorry img{
+       width: 200px;
+    }
+    .sorry {
+        font-size: 25px;
+        font-weight: 600;
+     }
+}
+@media screen and (max-width:338px) {
+    .sorry img{
+       width: 170px;
+    }
+    .sorry {
+        font-size: 20px;
+        font-weight: 500;
+     }
+}
