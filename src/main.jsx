@@ -17,12 +17,14 @@ import BookContent from './components/BookContent.jsx';
 import { Provider } from 'react-redux';
 import AnukritiStore from './store/store.js';
 import Publish from './components/Publish.jsx';
+import PostQuery from './components/PostQuery.jsx';
 const router=createBrowserRouter([
   {
   path:"/",
   element:<App />,
   children:[
   {path:"/Anukriti",element:<Home/>},
+  {path:"/Anukriti/post-query/:id",element:<PostQuery/>},
   {path:"/Anukriti/sign",element:<Sign/>},
   {path:"/Anukriti/write/",element:<Write/>},
   {path:"/Anukriti/create",element:<Create/>},
@@ -44,3 +46,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </Provider>
   
 )
+
