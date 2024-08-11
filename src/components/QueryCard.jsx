@@ -42,7 +42,7 @@ function QueryCard({id}){
         };
         const getPostRating = async () => {
           try {
-              const res = await axios.get('http://localhost:8000/api/posts/get-rating', {
+              const res = await axios.get('https://anukriti.onrender.com/api/posts/get-rating', {
                 params: {postId:id},
                 headers: {
                   'Content-Type': 'application/json'
