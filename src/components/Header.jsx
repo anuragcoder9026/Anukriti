@@ -4,7 +4,7 @@ import { MdOutlineEdit } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 import { IoSearchOutline } from "react-icons/io5";
 import { Link, useLocation } from "react-router-dom";
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import '../CSS/navbar.css'
 import logoImg from '../assets/logo.png'
 import axios from 'axios';
@@ -17,6 +17,12 @@ function Header(){
   const dispatch=useDispatch();
   const isAuthenticated=useSelector(store=>store.afterSign);
   const userinfo=useSelector(store=>store.userData);
+  const searchTerm=useRef(null);
+  const handleSearch=(e)=>{
+    e.preventDefault();
+    console.log(searchTerm.current.value);
+    navigate(`/Anukriti/post-query/${searchTerm.current.value}`);
+  }
   useEffect(() => {
     const authenticate = async () => {
         try {
@@ -91,8 +97,8 @@ function Header(){
            
           </ul>
           <form  className="d-flex" role="search">
-            <input  className="form-control me-2"type="search" placeholder="Search Stories/Poems" aria-label="Search"/>
-            <button  className="btn btn-outline-success" type="submit"><IoSearchOutline/></button>
+            <input  className="form-control me-2"type="search" placeholder="Search Stories/Poems" aria-label="Search" ref={searchTerm}/>
+            <button  className="btn btn-outline-success" type="submit" onClick={handleSearch}><IoSearchOutline/></button>
           </form>
         </div>
       </div>
